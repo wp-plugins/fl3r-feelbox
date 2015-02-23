@@ -40,6 +40,13 @@ A FAQ section is available from the FeelBox Stats and FeelBox Settings pages. If
 
 == Changelog ==
 
+= 3.0 =
+* New responsive layout.
+* Visual optimization for mobile browsers.
+* Cells bug fixes, increased themes compatibility.
+* Visual bug fixes for Internet Explorer and Mozilla Firefox.
+* Code optimization.
+
 = 2.0 =
 * Bug fixes.
 * Visual bug fixes.

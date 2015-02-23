@@ -37,15 +37,13 @@
 	text-align: center;
 	visibility: hidden;
 }
-#feelbox-widget #lyr2 .b {
+#feelbox-widget #lyr2 #feelbox-bold {
 	font-weight: bold;
 	font-size: 1.4em;
 	line-height: 1.2em;
-	margin: 10px 0px 30px 0px;
+	margin: 10px 0px 20px 0px;
 }
-#feelbox-widget #lyr2 .s {
-	margin-top: 16px;
-	font-size: 85%;
+#feelbox-widget #lyr2 #feelbox-s {
 }
 #feelbox-widget #total, #feelbox-widget #voted {
 	display: none;
@@ -69,11 +67,11 @@
 	min-height: 30px;
 	border-radius: 0px !important;
 }
-#feelbox-widget #hdr #t {
+#feelbox-widget #hdr #title {
 	float: right;
 	padding-right: 6px;
 }
-#feelbox-widget #hdr #t span {
+#feelbox-widget #hdr #title span {
 	background: url("../images/logo.png") no-repeat scroll 0 0 transparent;
 	display: block;
 	float: left;
@@ -90,8 +88,8 @@
 	padding-right: 4px;
 	margin-top: 2px;
 	min-height: 24px;
-	text-indent: -99999px;
 	width: 24px;
+	color: transparent !important;
 }
 #feelbox-widget #hdr #s { /* padding-left: 6px; padding-top: 6px; */
 	display: block;
@@ -110,7 +108,7 @@
 #feelbox-widget #bd #loading {
 	top: 1px;
 	background: url("../images/loading.gif") center center no-repeat #fff;
-	height: 100px;
+	height: 100%;
 	opacity: 0.9;
 	position: absolute;
 	text-align: center;
@@ -120,11 +118,11 @@
 #feelbox-widget ul {
 	width: 100%;
 	padding: 0px;
-	margin: 0 auto;
+	margin: 8px auto 0px auto;
 	text-align: center;
 }
 #feelbox-widget ul li {
-	width: 15.5%;
+	width: 15%;
 	cursor: pointer;
 	display: inline-block;
 	padding: 0;
@@ -133,23 +131,25 @@
 *display: inline;
 	margin: 0;
 }
-#feelbox-widget ul li .cell {
+#feelbox-widget ul li #feelbox-cell {
 	margin: 5px 2px;
-	height: 75px;
+	/*height: 75px;*/
+	height: 100%;
 	vertical-align: middle;
 	-moz-box-orient: vertical;
 	text-align: center;
 	position: relative;
 }
-#feelbox-widget ul li .cell div {
+#feelbox-widget ul li #feelbox-cell div {
 	height: 100%;
 	width: 100%;
-	margin: 0; /* line-height: 1.25em; */
+	margin: 0;
+	/* line-height: 1.25em; */
 }
-#feelbox-widget ul li .cell span {
+#feelbox-widget ul li #feelbox-cell span {
 	display: block;
 }
-#feelbox-widget ul li .cell span.m {
+#feelbox-widget ul li #feelbox-cell span.m {
 	font-size: 1.2em;
 	line-height: 0px;
 	padding-top: 0px;
@@ -157,34 +157,22 @@
 	color: #333;
 	visibility: hidden;
 }
-#feelbox-widget ul li .cell span.p {
+#feelbox-widget ul li #feelbox-cell span.p {
 	font-size: 2.4em;
 	line-height: 28px;
 }
-#feelbox-widget ul li .cell span.count {
+#feelbox-widget ul li #feelbox-cell span.count {
 	position: absolute;
 	visibility: hidden;
 }
 .clearfix {
 	clear: both;
 }
-#feelbox-widget.small ul li .cell span.m {
-	font-size: 1.0em;
-}
-#feelbox-widget.small ul li .cell span.percent {
-	font-size: 1.0em;
-	line-height: 180px;
-}
-#feelbox-widget.small ul li .cell .vftthx {
-	font-size: 1.0em;
-	margin-top: -130px !important;
-}
-#feelbox-widget ul li .cell .vftthx, #feelbox-widget ul li .cell .vft.vftchoose {
+#feelbox-widget ul li #feelbox-cell .vftthx, #feelbox-widget ul li #feelbox-cell .vft.vftchoose {
 	font-size: 0.75em;
 	float: left;
 	width: 100%;
 	color: #666;
-	margin-bottom: -130px;
 }
 #sparkbardiv {
 	width: 98%;
@@ -206,7 +194,13 @@
 #mdr-e1 {
 	background-image: url(../images/fascinated.png);
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: top;
+	background-size: contain;
+}
+#mdr-e1:hover {
+	background-image: url(../images/fascinated.png);
+	background-repeat: no-repeat;
+	background-position: top;
 	background-size: contain;
 }
 #mdr-e1 .percent {
@@ -219,7 +213,7 @@
 #mdr-e2 {
 	background-image: url(../images/happy.png);
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: top;
 	background-size: contain;
 }
 #mdr-e2 .percent {
@@ -232,7 +226,7 @@
 #mdr-e3 {
 	background-image: url(../images/sad.png);
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: top;
 	background-size: contain;
 }
 #mdr-e3 .percent {
@@ -245,7 +239,7 @@
 #mdr-e4 {
 	background-image: url(../images/angry.png);
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: top;
 	background-size: contain;
 }
 #mdr-e4 .percent {
@@ -258,7 +252,7 @@
 #mdr-e5 {
 	background-image: url(../images/bored.png);
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: top;
 	background-size: contain;
 }
 #mdr-e5 .percent {
@@ -271,7 +265,7 @@
 #mdr-e6 {
 	background-image: url(../images/afraid.png);
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: top;
 	background-size: contain;
 }
 #mdr-e6 .percent {
@@ -280,11 +274,8 @@
 .spark6 {
 	background-color: #b967da;
 }
-.percent {
-	line-height: 200px;
-}
 .p-0 {
-	color: #CCCCCC;
+/*	color: #CCCCCC; */
 }
 #feelbox-widget p {
 	margin: 0;
@@ -293,37 +284,119 @@
 #feelbox-widget br {
 	display: none;
 }
-#tweet-button {
+#feelbox-twitter-button {
 	background-image: url(../images/share-twitter.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	font-size: 3em;
+	font-size: 2em;
 	color: transparent !important;
 	margin: 4px;
+	text-decoration: none !important;
 }
-#fb-button {
+#feelbox-facebook-button{
 	background-image: url(../images/share-facebook.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	font-size: 3em;
+	font-size: 2em;
 	color: transparent !important;
 	margin: 4px;
+	text-decoration: none !important;
 }
-#gp-button {
+#feelbox-googleplus-button {
 	background-image: url(../images/share-googleplus.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	font-size: 3em;
+	font-size: 2em;
 	color: transparent !important;
 	margin: 4px;
+	text-decoration: none !important;
 }
-.social-fl3r {
-	width: 130px !important;
-	height: 48px !important;
+#feelbox-twitter-button a {
+	outline: none !important;
+}
+#feelbox-facebook-button a {
+	outline: none !important;
+}
+#feelbox-googleplus-button a {
+	outline: none !important;
+}
+.percent {
+	margin-top: 100%;
 }
 .vftthx {
-	margin-top: -125px;
+	position: absolute;
+}
+#feelbox-social-media, a#feelbox-social-media {
+	text-decoration: none !important;
+}
+a#clr {
+	text-decoration: none !important;
+}
+.entry-content a {
+	border-bottom: 0px !important;
+}
+#feelbox-ifeel {
+}
+div#feelbox-s {
+	line-height: 24px;
+}
+
+/* fl3r: mobile <500px */
+
+@media (max-width: 500px) {
+div#feelbox-s {
+	font-size: 0.75em;
+}
+#feelbox-widget #hdr #title span {
+	background: url("../images/logo.png") no-repeat scroll 0 0 transparent;
+	display: block;
+	float: left;
+	margin-right: 8px;
+	margin-top: 2px;
+	min-height: 24px;
+	text-indent: -99999px;
+	width: 30px;
+}
+#feelbox-twitter-button {
+	background-image: url(../images/share-twitter.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	font-size: 1.5em;
+	color: transparent !important;
+	text-decoration: none !important;
+}
+#feelbox-facebook-button{
+	background-image: url(../images/share-facebook.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	font-size: 1.5em;
+	color: transparent !important;
+	text-decoration: none !important;
+}
+#feelbox-googleplus-button {
+	background-image: url(../images/share-googleplus.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	font-size: 1.5em;
+	color: transparent !important;
+	text-decoration: none !important;
+}
+}
+
+/* fl3r: mobile <400px */
+
+@media (max-width: 400px) {
+#feelbox-widget.small ul li #feelbox-cell span.m {
+}
+#feelbox-widget.small ul li #feelbox-cell span.percent {
+	font-size: 0.75em;
+}
+#feelbox-widget.small ul li #feelbox-cell .vftthx {
+}
 }

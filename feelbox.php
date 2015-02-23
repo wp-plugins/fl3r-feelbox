@@ -99,32 +99,28 @@ function feelbox_get_widget_html() {
 		$obj = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}lydl_posts WHERE ID=" . $post_id, ARRAY_A);
 		$sum = $obj["emotion_1"]+$obj["emotion_2"]+$obj["emotion_3"]+$obj["emotion_4"]+$obj["emotion_5"]+$obj["emotion_6"];
 
-		$widgethtml = '<div id="feelbox-widget" class="voted"><div id="lyr2"><div class="b">Share your vote!</div>
+		$widgethtml = '<div id="feelbox-widget" class="voted"><div id="lyr2"><div id="feelbox-bold">Share your vote!</div>
 		<BR>
 		<BR>
 		<div>
 		
-		<a id="tweet-button" class="socialmedia" href="https://twitter.com/share?url=' . get_permalink() . '&via=Armando_Fiore&text=I%20just%20voted%20on%20the%20post%20\"' . get_the_title() . '\"">share</a>
+		<a id="feelbox-twitter-button" class="socialmedia" href="https://twitter.com/share?url=' . get_permalink() . '&related=Armando_Fiore&hashtags=FL3RFeelBox&text=I%20just%20voted%20on%20the%20post%20\"' . get_the_title() . '\"">share</a>
 		
-		<a id="fb-button" class="socialmedia" href="http://www.facebook.com/sharer/sharer.php?s=100&p[title]=' . get_the_title() . '&p[url]=' . get_permalink() . '&p[summary]=I+just+voted+on+this+post+with+feelbox!">share</a>
+		<a id="feelbox-facebook-button" class="socialmedia" href="http://www.facebook.com/sharer/sharer.php?s=100&p[title]=' . get_the_title() . '&p[url]=' . get_permalink() . '&p[summary]=I+just+voted+on+this+post+with+feelbox!">share</a>
 		
-		<a id="gp-button" class="socialmedia" href="https://plus.google.com/share?url=' . get_the_title() . '&p[url]=' . get_permalink() . '&p[summary]=I+just+voted+on+this+post+with+feelbox!">share</a>
-
-
+		<a id="feelbox-googleplus-button" class="socialmedia" href="https://plus.google.com/share?url=' . get_the_title() . '&p[url]=' . get_permalink() . '&p[summary]=I+just+voted+on+this+post+with+feelbox!">share</a>
 
 </div>
 
-
-
-<div class="s"><a href="#" id="clr">No, thanks.</a></div></div>
+<div id="feelbox-s"><a href="#" id="clr">No, thanks.</a></div></div>
 
 			<div id="lyr1"></div>
 			<div id="hdr">
-			<div id="paypal"><a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2PCZCTKZ86ANA"><span>Donate</span></a></div>
-				<div id="t">
-					<a target="_blank" href="https://twitter.com/Armando_Fiore" title="feelbox"><span>FL3R FeelBox</span></a>
+			<div id="paypal"><a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2PCZCTKZ86ANA" title="Donate with PayPal"><span> </span></a></div>
+				<div id="title">
+					<a target="_blank" href="https://wordpress.org/plugins/fl3r-feelbox/" title="FL3R FeelBox on Wordpress.org"><span> </span></a>
 				</div>
-				<div id="s">How does this post make you feel?</div>
+				<div id="feelbox-s">How does this post make you feel?</div>
 			</div>
 			<span id="total"></span><span id="voted"></span>
 			<div id="bd" style="">
@@ -136,27 +132,27 @@ function feelbox_get_widget_html() {
 				</div>
 							
 				<ul>
-					<li id="mdr-e1"><div class="cell"><div>
+					<li id="mdr-e1"><div id="feelbox-cell"><div>
 						<span class="m">' . $moods[1] .'</span>
 						<span class="count"></span><span class="percent"></span>
 					</div></div></li>
-					<li id="mdr-e2"><div class="cell"><div>
+					<li id="mdr-e2"><div id="feelbox-cell"><div>
 						<span class="m">' . $moods[2] . '</span>
 						<span class="count"></span><span class="percent"></span>
 					</div></div></li>
-					<li id="mdr-e3"><div class="cell"><div>
+					<li id="mdr-e3"><div id="feelbox-cell"><div>
 						<span class="m">' . $moods[3] .'</span>
 						<span class="count"></span><span class="percent"></span>
 					</div></div></li>
-					<li id="mdr-e4"><div class="cell"><div>
+					<li id="mdr-e4"><div id="feelbox-cell"><div>
 						<span class="m">' . $moods[4] . '</span>
 						<span class="count"></span><span class="percent"></span>
 					</div></div></li>
-					<li id="mdr-e5"><div class="cell"><div>
+					<li id="mdr-e5"><div id="feelbox-cell"><div>
 						<span class="m">' . $moods[5] . '</span>
 						<span class="count"></span><span class="percent"></span>
 					</div></div></li>
-					<li id="mdr-e6"><div class="cell"><div>
+					<li id="mdr-e6"><div id="feelbox-cell"><div>
 						<span class="m">' . $moods[6] . '</span>
 						<span class="count"></span><span class="percent"></span>
 					</div></div></li>

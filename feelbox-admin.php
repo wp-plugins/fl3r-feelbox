@@ -396,7 +396,7 @@ function feelbox_settings_page() {
           <tr valign="top">
             <th scope="row">Social media sharing</th>
             <td><input type="checkbox" id="showtweetfollowup" name="showtweetfollowup" <?php if ( $options["showtweetfollowup"]=='on' ) { echo 'checked="true"'; } ?>>
-              <label for="showtweetfollowup">Allow people to tweet on Twitter and sharing on Facebook after voting.</label></td>
+              <label for="showtweetfollowup">Allow people to share on Twitter, Facebook and Google+ after voting.</label></td>
           </tr>
         </tbody>
       </table>
@@ -527,7 +527,7 @@ function feelbox_reset_moods() {
 
 	$wpdb->query( "DELETE FROM ".$table_name );
 	$wpdb->query( "DELETE FROM ".$table_name2 );
-	echo '<div class="updated"><p><strong>All Moods have been reset.</strong></p></div>';
+	echo '<div class="updated"><p><strong>All moods have been reset. ლ(ಠ益ಠლ) What did you do?</strong></p></div>';
 }
 
 function feelbox_dashboard_page() {

@@ -1,12 +1,3 @@
-	   /**
-		* jQuery Cookie plugin
-		*
-		* Copyright (c) 2010 Klaus Hartl (stilbuero.de)
-		* Dual licensed under the MIT and GPL licenses:
-		* http://www.opensource.org/licenses/mit-license.php
-		* http://www.gnu.org/licenses/gpl.html
-		*
-		*/
 		jQuery.cookie = function (key, value, options) {
 		
 		    // key and at least value given, set cookie...
@@ -194,7 +185,7 @@
 		
 		if (jQuery("#feelbox-widget #voted").html()) {
 			jQuery("#feelbox-widget").addClass("voted");
-			jQuery("#mdr-e" + jQuery("#feelbox-widget #voted").html() + " .cell div");
+			jQuery("#mdr-e" + jQuery("#feelbox-widget #voted").html() + " feelbox-cell div");
 
 		} else {
 			jQuery("#feelbox-widget ul li").click(function(){
@@ -206,7 +197,7 @@
 			
 			jQuery("#feelbox-widget ul li").hover(
 				function() {
-					jQuery(this).find(".cell div").append(jQuery("<span class='vftthx'>I FEEL THIS WAY</span>"));
+					jQuery(this).find("#feelbox-cell div").append(jQuery("<span class='vftthx'>I FEEL</span>"));
 				},
 				function() {
 					jQuery(this).find("span.vftthx").remove();
@@ -264,11 +255,11 @@
 				if ( feelboxAjax.tweet == 'on' ) {
 					var strEmo = jQuery("#feelbox-widget #mdr-e" + vote_field + " .m").html();
 					var message = "I just voted \"" + strEmo + "\" in \"" + feelboxAjax.title + "\"";
-					var tweetButton = jQuery('#tweet-button').attr('href').replace(/text=[^&]+/, "text=" + encodeURIComponent(message) );
-					var fbButton = jQuery('#fb-button').attr('href').replace(/p\[summary\]=[^&]+/, "p[summary]=" + encodeURIComponent(message) );
+					var tweetButton = jQuery('#feelbox-twitter-button').attr('href').replace(/text=[^&]+/, "text=" + encodeURIComponent(message) );
+					var fbButton = jQuery('#feelbox-facebook-button').attr('href').replace(/p\[summary\]=[^&]+/, "p[summary]=" + encodeURIComponent(message) );
 					
-					jQuery('#tweet-button').attr('href', tweetButton);
-					jQuery('#fb-button').attr('href', fbButton);
+					jQuery('#feelbox-twitter-button').attr('href', tweetButton);
+					jQuery('#feelbox-facebook-button').attr('href', fbButton);
 
 					jQuery("#feelbox-widget #lyr1").css("visibility","visible");
 					jQuery("#feelbox-widget #lyr2").css("visibility","visible");
@@ -299,9 +290,9 @@
 
 		jQuery("#feelbox-widget").addClass("voted");
 		jQuery("#feelbox-widget #voted").html( obj.vote );
-		jQuery("#mdr-e" + jQuery("#feelbox-widget #voted").html() + " .cell div")
+		jQuery("#mdr-e" + jQuery("#feelbox-widget #voted").html() + " feelbox-cell div")
 			.find("span.vftthx").remove();
-		jQuery("#mdr-e" + jQuery("#feelbox-widget #voted").html() + " .cell div")
+		jQuery("#mdr-e" + jQuery("#feelbox-widget #voted").html() + " feelbox-cell div")
 			.append(jQuery("<span class='vftthx'>THANKS!</span>"));
 
 		calculate_percentages();
