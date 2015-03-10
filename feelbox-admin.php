@@ -1,4 +1,5 @@
 <?php
+load_plugin_textdomain('fl3r-feelbox', NULL, dirname(plugin_basename(__FILE__)) . "/languages");
 
 define('feelbox_CSS_DEFAULT', feelbox_PLUGIN_DIR . '/css/style-custom.css');
 define('feelbox_CSS_FILE', WP_CONTENT_DIR . '/uploads/feelbox-custom.css');
@@ -65,39 +66,63 @@ class feelbox_Widget extends WP_Widget {
 		?>
 
 <p>
-  <label for="<?php echo $this->get_field_id('title'); ?>">Title:
+  <label for="<?php echo $this->get_field_id('title'); ?>">
+    <?php _e('Title:', 'fl3r-feelbox'); ?>
     <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" />
   </label>
 </p>
 <p>
-  <label for="<?php echo $this->get_field_id('duration'); ?>">Show:
+  <label for="<?php echo $this->get_field_id('duration'); ?>">
+    <?php _e('Show:', 'fl3r-feelbox'); ?>
     <select id="<?php echo $this->get_field_id('duration'); ?>" name="<?php echo $this->get_field_name('duration'); ?>">
-      <option value="365 DAY"<?php echo ($duration == '365 DAY') ? ' selected="selected"' : ''; ?>>The past year</option>
-      <option value="30 DAY"<?php echo ($duration == '30 DAY') ? ' selected="selected"' : ''; ?>>The past 30 days</option>
-      <option value="7 DAY"<?php echo ($duration == '7 DAY') ? ' selected="selected"' : ''; ?>>The past 7 days</option>
-      <option value="1 DAY"<?php echo ($duration == '1 DAY') ? ' selected="selected"' : ''; ?>>The past day</option>
+      <option value="<?php _e('365 DAYS', 'fl3r-feelbox'); ?>"<?php echo ($duration == '365 DAY') ? ' selected="selected"' : ''; ?>>
+      <?php _e('The past year', 'fl3r-feelbox'); ?>
+      </option>
+      <option value="<?php _e('30 DAY', 'fl3r-feelbox'); ?>"<?php echo ($duration == '30 DAY') ? ' selected="selected"' : ''; ?>>
+      <?php _e('The past 30 days', 'fl3r-feelbox'); ?>
+      </option>
+      <option value="<?php _e('7 DAY', 'fl3r-feelbox'); ?>"<?php echo ($duration == '7 DAY') ? ' selected="selected"' : ''; ?>>
+      <?php _e('The past 7 days', 'fl3r-feelbox'); ?>
+      </option>
+      <option value="<?php _e('1 DAY', 'fl3r-feelbox'); ?>"<?php echo ($duration == '1 DAY') ? ' selected="selected"' : ''; ?>>
+      <?php _e('The past day', 'fl3r-feelbox'); ?>
+      </option>
       <?php for ($i=1; $i<=6; $i=$i+1) { ?>
-      <option value="MOOD-<?php echo $i; ?>"<?php echo ($duration == 'MOOD-' . $i ) ? ' selected="selected"' : ''; ?>>Posts most "<?php echo $moods[$i]; ?>"</option>
+      <option value="MOOD-<?php echo $i; ?>"<?php echo ($duration == 'MOOD-' . $i ) ? ' selected="selected"' : ''; ?>>
+      <?php _e('Post most', 'fl3r-feelbox'); ?>
+      "<?php echo $moods[$i]; ?>"</option>
       <?php } ?>
     </select>
   </label>
 </p>
 <p>
-  <label for="<?php echo $this->get_field_id('number'); ?>">Number of posts to display:</label>
+  <label for="<?php echo $this->get_field_id('number'); ?>">
+    <?php _e('Number of posts to display:', 'fl3r-feelbox'); ?>
+  </label>
   <input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" size="3" />
   <br />
-  <small>(at most 10)</small> </p>
+  <small>
+  <?php _e('(at most 10)', 'fl3r-feelbox'); ?>
+  </small> </p>
 <p>
 <fieldset style="width:214px; padding:5px;"  class="widefat">
-  <legend>Thumbnail settings</legend>
+  <legend>
+  <?php _e('Thumbnail settings', 'fl3r-feelbox'); ?>
+  </legend>
   <input type="checkbox" class="checkbox" name="<?php echo $this->get_field_name( 'thumbnail-active' ); ?>" <?php echo ($instance['thumbnail']['active']) ? 'checked="checked"' : ''; ?> id="<?php echo $this->get_field_id('thumbnail-active'); ?>">
-  <label for="<?php echo $this->get_field_id('thumbnail-active'); ?>">Display post thumbnail. Check ad save to change the size.</label>
+  <label for="<?php echo $this->get_field_id('thumbnail-active'); ?>">
+    <?php _e('Display post thumbnail. Check and save to change the size.', 'fl3r-feelbox'); ?>
+  </label>
   <br>
   <?php if($instance['thumbnail']['active']) : ?>
-  <label for="<?php echo $this->get_field_id( 'thumbnail-width' ); ?>">Width:</label>
+  <label for="<?php echo $this->get_field_id( 'thumbnail-width' ); ?>">
+    <?php _e('Width:', 'fl3r-feelbox'); ?>
+  </label>
   <input id="<?php echo $this->get_field_id( 'thumbnail-width' ); ?>" name="<?php echo $this->get_field_name( 'thumbnail-width' ); ?>" value="<?php echo  $instance['thumbnail']['width']; ?>"  class="widefat" style="width:30px!important" />
   px <br />
-  <label for="<?php echo $this->get_field_id( 'thumbnail-height' ); ?>">Height:</label>
+  <label for="<?php echo $this->get_field_id( 'thumbnail-height' ); ?>">
+    <?php _e('Height:', 'fl3r-feelbox'); ?>
+  </label>
   <input id="<?php echo $this->get_field_id( 'thumbnail-height' ); ?>" name="<?php echo $this->get_field_name( 'thumbnail-height' ); ?>" value="<?php echo  $instance['thumbnail']['height']; ?>"  class="widefat" style="width:30px!important" />
   px<br />
   <?php endif; ?>
@@ -183,7 +208,6 @@ class feelbox_Widget extends WP_Widget {
 			}
 			echo '</ul>';
 		} else {
-			// echo '<tr><td colspan="3">No one has voted for this yet. Check back soon.</td></tr>';
 		}		
 		
 		echo $after_widget;
@@ -215,7 +239,6 @@ function generate_post_thumbnail($id, $dimensions, $atts) {
 }
 
 function feelbox_wp_menu() {
-    // wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js');
 
 	add_dashboard_page('FL3R FeelBox Dashboard', 'FL3R FeelBox', 'manage_options', 'feelbox', 'feelbox_dashboard_page', plugin_dir_url( __FILE__ ) . 'images/logo-admin.png');
 	//fl3r: menu with icon
@@ -234,8 +257,7 @@ function feelbox_settings_link($links) {
 function feelbox_settings_page() {
 	global $wpdb;
 	global $moods;
-	global $feelbox_server;
-	global $use_centralized_site;
+	global $customcss;
 	
 	$hidden_field_name = 'feelbox_submit_hidden';
 	$options = get_option('feelbox_wp_options');
@@ -249,58 +271,8 @@ function feelbox_settings_page() {
 	.selected { font-weight:bold; color:#000; text-decoration: none; }
 	.content { display:none; }
 	#settings { display:block; }
-	#apikey, #apiname { padding: 5px; width: 200px; }
 	</style>
 <script type="text/javascript">
-
-	<?php if ( $use_centralized_site ) : ?>
-	jQuery(document).ready(function(){
-	
-		if ( jQuery('#validkey').val()=='1' ) {
-			jQuery('#apiverifyresult').html('Your widget will now appear on your blog posts!');
-		} else {
-			jQuery('#apiverifyresult').html('<span style="color:red;">Your widget will not appear.</span>');
-		}
-	
-		function verify( submit_form_afterward ) {
-			// http://stackoverflow.com/questions/1388018/jquery-attaching-an-event-to-multiple-elements-at-one-go
-			var jApikey = jQuery("#apikey");
-			var jApiname = jQuery("#apiname");
-			var jObj = jApikey.add(jApiname);
-
-			var n = jApiname.val();
-			n = jQuery.trim(n);
-			var k = jApikey.val();
-			k = jQuery.trim(k);
-			// console.log(n,k);
-			jQuery.ajax({
-				url: '<?php echo $feelbox_server; ?>/api/websites/verify/' + n + '/' + k,
-				dataType: 'jsonp',
-				type: 'get',
-				success: function(j) {
-					if (j.stat == 'ok') {
-						jQuery('#apiverifyresult').html('Your widget will appear on your blog posts, but don\'t forget to save your changes!');
-						jQuery('#validkey').val('1');
-					} else {
-						jQuery('#apiverifyresult').html('<span style="color:red;">Your widget will not appear.</span>');
-						jQuery('#validkey').val('');
-					}
-					
-					if (submit_form_afterward) jQuery('form#options').submit();
-					
-				}
-			});
-		}
-	
-		var jApikey = jQuery("#apikey");
-		var jApiname = jQuery("#apiname");
-		var jObj = jApikey.add(jApiname);
-					
-		jQuery('form#options p.submit input.button-primary').click( function(){ verify(true); } );
-		jObj.blur( function(){ verify(); } );
-		
-	});	
-	<?php endif; ?>
 
 	jQuery(document).ready(function(){
 	
@@ -351,10 +323,6 @@ function feelbox_settings_page() {
 				$options['showinpostsondefault'] 	= $_POST[ 'showinpostsondefault' ];
 				$options['bypasscss']				= $_POST[ 'bypasscss' ];				
 				$options['showtweetfollowup'] 		= ( $_POST[ 'showtweetfollowup' ] ) ? $_POST[ 'showtweetfollowup' ] : 'off' ;
-							
-				$options['apikey'] 					= $_POST[ 'apikey' ];
-				$options['apiname'] 				= $_POST[ 'apiname' ];
-				$options['validkey'] 				= $_POST[ 'validkey' ];
 
 				@file_put_contents(feelbox_CSS_FILE, stripslashes( $_POST[ 'cssbox' ] ) );
 				
@@ -363,64 +331,103 @@ function feelbox_settings_page() {
 				}
 				
 				update_option('feelbox_wp_options', $options);
-				echo '<div class="updated"><p><strong>Settings Saved.</strong></p></div>';
+				
 
+					echo '<div class="updated"><p><strong>';
+					_e("Settings saved. (◕‿◕)","fl3r-feelbox");
+					echo '</strong></p></div>';
+	
 			}
 		}
 
 	?>
 <div class="wrap">
-  <h2 class="nav-tab-wrapper">FL3R FeelBox <a class="nav-tab" href="<?php echo admin_url('index.php?page=feelbox'); ?>">Stats</a> <a class="nav-tab nav-tab-active" rel="settings" href="#">Settings</a> <a class="nav-tab" rel="customize" href="#">Custom CSS</a> <a class="nav-tab" rel="faq" href="#">FAQ</a> <a class="nav-tab" rel="credits" href="#">Credits</a> <a class="nav-tab" rel="donate" href="#">Donate</a></h2>
+  <h2 class="nav-tab-wrapper">FL3R FeelBox <a class="nav-tab" href="<?php echo admin_url('index.php?page=feelbox'); ?>">
+    <?php _e("Stats","fl3r-feelbox");?>
+    </a> <a class="nav-tab nav-tab-active" rel="settings" href="#">
+    <?php _e("Settings","fl3r-feelbox");?>
+    </a> <a class="nav-tab" rel="customize" href="#">
+    <?php _e("Custom CSS","fl3r-feelbox");?>
+    </a> <a class="nav-tab" rel="faq" href="#">
+    <?php _e("FAQ","fl3r-feelbox");?>
+    </a> <a class="nav-tab" rel="credits" href="#">
+    <?php _e("Credits","fl3r-feelbox");?>
+    </a> <a class="nav-tab" rel="donate" href="#">
+    <?php _e("Donate","fl3r-feelbox");?>
+    </a></h2>
   <div class="container">
     <div class="content" id="settings">
       <form id="options" method="post">
-      <h3 style="clear:both;">Plugin settings</h3>
+      <h3 style="clear:both;">
+        <?php _e("Plugin settings","fl3r-feelbox");?>
+      </h3>
       <table class="form-table">
         <tbody>
           <tr valign="top">
-            <th scope="row">Graphical bar</th>
+            <th scope="row"><?php _e("Graphical bar","fl3r-feelbox");?></th>
             <td><input type="checkbox" id="showsparkbar" name="showsparkbar" <?php if ( $options["showsparkbar"]=='on' ) { echo 'checked="true"'; } ?>>
-              <label for="showsparkbar">Show the graphical bar graph above moods.</label></td>
+              <label for="showsparkbar">
+                <?php _e("Show the graphical bar graph above moods.","fl3r-feelbox");?>
+              </label></td>
           </tr>
           <tr valign="top">
-            <th scope="row">Sorting</th>
+            <th scope="row"><?php _e("Sorting","fl3r-feelbox");?></th>
             <td><input type="checkbox" id="sortmoods" name="sortmoods" <?php if ( $options["sortmoods"]=='on' ) { echo 'checked="true"'; } ?>>
-              <label for="sortmoods">Automatically sort the moods by popularity. I suggest you leave this box unchecked.</label></td>
+              <label for="sortmoods">
+                <?php _e("Automatically sort the moods by popularity. I suggest you leave this box unchecked.","fl3r-feelbox");?>
+              </label></td>
           </tr>
           <tr valign="top">
-            <th scope="row">Automatic display</th>
+            <th scope="row"><?php _e("Automatic display","fl3r-feelbox");?></th>
             <td><input type="checkbox" id="showinpostsondefault" name="showinpostsondefault" <?php if ( $options["showinpostsondefault"]=='on' ) { echo 'checked="true"'; } ?>>
-              <label for="showinpostsondefault">Automatically display the feelbox widget at the end of each blog post.</label>
-              <p class="description">Only if this is unchecked, you can use the print_feelbox_widget() PHP function in your templates or use the [feelbox] shortcode to show the FeelBox where you want.</p></td>
+              <label for="showinpostsondefault">
+                <?php _e("Automatically display the FeelBox at the end of each blog post.","fl3r-feelbox");?>
+              </label>
+              <p class="description">
+                <?php _e("Only if this is unchecked, you can use the print_feelbox_widget() PHP function in your templates or use the [feelbox] shortcode to show the FeelBox where you want.","fl3r-feelbox");?>
+              </p></td>
           </tr>
           <tr valign="top">
-            <th scope="row">Social media sharing</th>
+            <th scope="row"><?php _e("Social media sharing","fl3r-feelbox");?></th>
             <td><input type="checkbox" id="showtweetfollowup" name="showtweetfollowup" <?php if ( $options["showtweetfollowup"]=='on' ) { echo 'checked="true"'; } ?>>
-              <label for="showtweetfollowup">Allow people to share on Twitter, Facebook and Google+ after voting.</label></td>
+              <label for="showtweetfollowup">
+                <?php _e("Allow people to share on Twitter, Facebook and Google+ after voting.","fl3r-feelbox");?>
+              </label></td>
           </tr>
         </tbody>
       </table>
-      <h3>Delete all moods</h3>
+      <h3>
+        <?php _e("Delete all moods","fl3r-feelbox");?>
+      </h3>
       <table class="form-table">
         <tbody>
           <tr valign="top">
-            <th scope="row">Clear all data</th>
+            <th scope="row"><?php _e("Clear all data","fl3r-feelbox");?></th>
             <td><p>
                 <input type="textbox" id="cleardata" name="cleardata">
               </p>
-              <p>WARNING!</p>
-              <p>This option will clear all votes and all data in the Stats page. Normally this is an operation without risk, but to be safe make sure you <a target="_blank" href="http://codex.wordpress.org/Backing_Up_Your_Database">back up</a> your database. This operation is irreversible. If you want to proceed, type <strong>DELETE</strong> in the textbox and click on Save changes button.</p></td>
+              <p>
+                <?php _e("WARNING!","fl3r-feelbox");?>
+              </p>
+              <p>
+                <?php _e("This option will clear all votes and all data in the Stats page. Normally this is an operation without risk, but to be safe make sure you","fl3r-feelbox");?>
+                <a target="_blank" href="http://codex.wordpress.org/Backing_Up_Your_Database">back up</a>
+                <?php _e("your database. This operation is irreversible. If you want to proceed, type <strong>DELETE</strong> in the textbox and click on Save changes button.","fl3r-feelbox");?>
+              </p></td>
           </tr>
         </tbody>
       </table>
-      <input type="hidden" id="validkey" name="validkey" value="<?php echo $options['validkey']; ?>">
       <input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y">
       <p class="submit">
-        <input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save Changes') ?>" />
+        <input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save changes') ?>" />
       </p>
       <!-- /form -->
-      <h3>Donate</h3>
-      <p>If you like this plugin, you consider making a small donation. Thanks.</p>
+      <h3>
+        <?php _e("Donate","fl3r-feelbox");?>
+      </h3>
+      <p>
+        <?php _e("If you like this plugin, you consider making a small donation. Thanks.","fl3r-feelbox");?>
+      </p>
       <p>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
         <input type="hidden" name="cmd" value="_s-xclick">
@@ -433,22 +440,30 @@ function feelbox_settings_page() {
     <div class="content" id="customize">
       <div id="csswrapper">
         <textarea style="width:100%;" rows="10" id="cssbox" name="cssbox"><?php echo @file_get_contents(feelbox_CSS_FILE); ?></textarea>
-        <p class="description">Here you can customize your FeelBox Css. The file is stored in the same directory of original FeelBox style.css.</p>
+        <p class="description">
+          <?php _e("Here you can customize your FeelBox Css. The file is stored in the same directory of original FeelBox style.css.","fl3r-feelbox");?>
+        </p>
       </div>
       <table class="form-table">
         <tbody>
           <tr valign="top">
-            <th scope="row">Bypass plugin CSS</th>
+            <th scope="row"><?php _e("Bypass plugin CSS","fl3r-feelbox");?></th>
             <td><input type="checkbox" name="bypasscss" <?php if ( $options["bypasscss"]=='on' ) { echo 'checked="true"'; } ?>>
-              <p class="description">Bypass the default and custom CSS used in the FeelBox plug-in and use CSS from your theme instead. This may be necessary for specific WordPress Multisite installations. Normally this option should be left unchecked.</p></td>
+              <p class="description">
+                <?php _e("Bypass the default and custom CSS used in the FeelBox plug-in and use CSS from your theme instead. This may be necessary for specific WordPress Multisite installations. Normally this option should be left unchecked.","fl3r-feelbox");?>
+              </p></td>
           </tr>
         </tbody>
       </table>
       <p class="submit">
-        <input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save Changes') ?>" />
+        <input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save changes') ?>" />
       </p>
-      <h3>Donate</h3>
-      <p>If you like this plugin, you consider making a small donation. Thanks.</p>
+      <h3>
+        <?php _e("Donate","fl3r-feelbox");?>
+      </h3>
+      <p>
+        <?php _e("If you like this plugin, you consider making a small donation. Thanks.","fl3r-feelbox");?>
+      </p>
       <p>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
         <input type="hidden" name="cmd" value="_s-xclick">
@@ -459,19 +474,37 @@ function feelbox_settings_page() {
       </p>
     </div>
     <div class="content" id="faq">
-      <h3>FAQ</h3>
-      <h3>There is a FeelBox widget?</h3>
-      <p>Sure! You can find it in the widget page of your admin panel.</p>
-      <h3>Can I manually insert the FeelBox widget?</h3>
-      <p>If the Automatic display option is checked, the FeelBox will be automatically display on each  post, right after the comment.</p>
-      <p>But if you want, you can  use the WordPress shortcode</p>
-      <p><code>[feelbox]</code></p>
-      <p>or add</p>
-      <p><code>&lt;?php if ( function_exists('print_feelbox_widget') ) { print_feelbox_widget(); } ?&gt;</code></p>
-      <p>in your PHP template, usually on your comment template (comments.php).</p>
-      <p>Attention! don't insert manually the FeelBox code if the Automatic display option is cecked: it may cause style errors and graphical glitch.</p>
-      <h3>Donate</h3>
-      <p>If you like this plugin, you consider making a small donation. Thanks.</p>
+      <h3>
+        <?php _e("FAQ","fl3r-feelbox");?>
+      </h3>
+      <h3>
+        <?php _e("There is a FeelBox widget?","fl3r-feelbox");?>
+      </h3>
+      <p>
+        <?php _e("Sure! You can find it in the widget page of your admin panel.","fl3r-feelbox");?>
+      </p>
+      <h3>
+        <?php _e("Can I manually insert the FeelBox?","fl3r-feelbox");?>
+      </h3>
+      <p>
+        <?php _e("If the \"Automatic display option\" is checked, the FeelBox will be automatically display on each  post, right before or after the comments.","fl3r-feelbox");?>
+      </p>
+      <p>
+        <?php _e("But if you want, you can  use the WordPress shortcode","fl3r-feelbox");?>
+        <code>[feelbox]</code>
+        <?php _e("or add","fl3r-feelbox");?>
+        <code>&lt;?php if ( function_exists('print_feelbox_widget') ) { print_feelbox_widget(); } ?&gt;</code>
+        <?php _e("in your PHP template, usually on your comment template (comments.php).","fl3r-feelbox");?>
+      </p>
+      <p>
+        <?php _e("Attention! Don't insert manually the FeelBox code if the Automatic display option is cecked: it may cause style errors and graphical glitch.","fl3r-feelbox");?>
+      </p>
+      <h3>
+        <?php _e("Donate","fl3r-feelbox");?>
+      </h3>
+      <p>
+        <?php _e("If you like this plugin, you consider making a small donation. Thanks.","fl3r-feelbox");?>
+      </p>
       <p>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
         <input type="hidden" name="cmd" value="_s-xclick">
@@ -482,16 +515,34 @@ function feelbox_settings_page() {
       </p>
     </div>
     <div class="content" id="credits">
-      <h3>Credits</h3>
-      <p>FeelBox is a plugin created by Armando "FL3R" Fiore. Dedicated to the beautiful girl who is always by my side, Anna Rita!</p>
-      <p>Thanks for using FeelBox, you helped a developer to increase his self-esteem!</p>
-      <h4>Copyright</h4>
-      <p>Copyright © 2014 Armando "FL3R" Fiore. All rights reserved. This software is provided as is, without any express or implied warranty. In no event shall the author be liable for any damage arising from the use of this software.</p>
-      <p><strong>Follow me!</strong></p>
-      <p>If you want to ask me, you want to send your opinion or you have a question please don't hesitate to contact me.</p>
+      <h3>
+        <?php _e("Credits","fl3r-feelbox");?>
+      </h3>
+      <p>
+        <?php _e("FeelBox is a plugin created by Armando \"FL3R\" Fiore. Dedicated to the beautiful girl who is always by my side, Anna Rita!","fl3r-feelbox");?>
+      </p>
+      <p>
+        <?php _e("Thanks for using FeelBox, you helped a developer to increase his self-esteem!","fl3r-feelbox");?>
+      </p>
+      <h4>
+        <?php _e("Copyright","fl3r-feelbox");?>
+      </h4>
+      <p>
+        <?php _e("Copyright © Armando \"FL3R\" Fiore. All rights reserved. This software is provided as is, without any express or implied warranty. In no event shall the author be liable for any damage arising from the use of this software.","fl3r-feelbox");?>
+      </p>
+      <p><strong>
+        <?php _e("Follow me!","fl3r-feelbox");?>
+        </strong></p>
+      <p>
+        <?php _e("If you want to ask me, you want to send your opinion or you have a question please don't hesitate to contact me.","fl3r-feelbox");?>
+      </p>
       <p><a href="https://twitter.com/Armando_Fiore" target="new">Twitter</a> - <a href="https://www.facebook.com/armando.FL3R.fiore" target="new">Facebook</a> - <a href="https://plus.google.com/+ArmandoFiore" target="new">Google+</a> - <a href="http://it.linkedin.com/in/armandofiore" target="new">LinkedIn</a></p>
-      <h3>Donate</h3>
-      <p>If you like this plugin, you consider making a small donation. Thanks.</p>
+      <h3>
+        <?php _e("Donate","fl3r-feelbox");?>
+      </h3>
+      <p>
+        <?php _e("If you like this plugin, you consider making a small donation. Thanks.","fl3r-feelbox");?>
+      </p>
       <p>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
         <input type="hidden" name="cmd" value="_s-xclick">
@@ -502,8 +553,12 @@ function feelbox_settings_page() {
       </p>
     </div>
     <div class="content" id="donate">
-      <h3>Donate</h3>
-      <p>If you like this plugin, you consider making a small donation. Thanks.</p>
+      <h3>
+        <?php _e("Donate","fl3r-feelbox");?>
+      </h3>
+      <p>
+        <?php _e("If you like this plugin, you consider making a small donation. Thanks.","fl3r-feelbox");?>
+      </p>
       <p>
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
         <input type="hidden" name="cmd" value="_s-xclick">
@@ -527,12 +582,17 @@ function feelbox_reset_moods() {
 
 	$wpdb->query( "DELETE FROM ".$table_name );
 	$wpdb->query( "DELETE FROM ".$table_name2 );
-	echo '<div class="updated"><p><strong>All moods have been reset. ლ(ಠ益ಠლ) What did you do?</strong></p></div>';
+	
+						echo '<div class="updated"><p><strong>';
+					_e("All moods have been reset. ლ(ಠ益ಠლ) What did you do?","fl3r-feelbox");
+					echo '</strong></p></div>';
+					
 }
 
 function feelbox_dashboard_page() {
 	global $wpdb;
 	global $moods;
+	global $customcss;
 	
 	$hidden_field_name = 'feelbox_submit_hidden';
 	$options = get_option('feelbox_wp_options');
@@ -546,7 +606,6 @@ function feelbox_dashboard_page() {
 	.selected { font-weight:bold; color:#000; text-decoration: none; }
 	.totaltable,.mood_table { display:none; }
 	#daily,#mood_1 { display:block; }
-	#apikey, #apiname { padding: 5px; width: 200px; }
 	</style>
 <script type="text/javascript">
 	jQuery(document).ready(function(){
@@ -577,14 +636,33 @@ function feelbox_dashboard_page() {
 
 function feelbox_printmoodtables() {
 	global $wpdb;
-	global $moods; ?>
+	global $moods;
+	global $customcss; ?>
 <div class="wrap">
-<h2 class="nav-tab-wrapper">FL3R FeelBox <a class="nav-tab nav-tab-active" href="<?php echo admin_url('index.php?page=feelbox'); ?>">Stats</a> <a class="nav-tab" rel="settings" href="<?php echo admin_url('options-general.php?page=feelbox#settings'); ?>">Settings</a> <a class="nav-tab" rel="customize" href="<?php echo admin_url('options-general.php?page=feelbox#customize'); ?>">Customization</a> <a class="nav-tab" rel="faq" href="<?php echo admin_url('options-general.php?page=feelbox#faq'); ?>">FAQ</a> <a class="nav-tab" rel="credits" href="<?php echo admin_url('options-general.php?page=feelbox#credits'); ?>">Credits</a> <a class="nav-tab" rel="donate" href="<?php echo admin_url('options-general.php?page=feelbox#donate'); ?>">Donate</a></h2>
-<h3>Most voted by mood</h3>
-<p>To get an accurate read of the posts people care about, we're only counting posts that have more than one vote.</p>
+<h2 class="nav-tab-wrapper">FL3R FeelBox <a class="nav-tab nav-tab-active" href="<?php echo admin_url('index.php?page=feelbox'); ?>">
+  <?php _e("Stats","fl3r-feelbox");?>
+  </a> <a class="nav-tab" rel="settings" href="<?php echo admin_url('options-general.php?page=feelbox#settings'); ?>">
+  <?php _e("Settings","fl3r-feelbox");?>
+  </a> <a class="nav-tab" rel="customize" href="<?php echo admin_url('options-general.php?page=feelbox#customize'); ?>">
+  <?php _e("Custom CSS","fl3r-feelbox");?>
+  </a> <a class="nav-tab" rel="faq" href="<?php echo admin_url('options-general.php?page=feelbox#faq'); ?>">
+  <?php _e("FAQ","fl3r-feelbox");?>
+  </a> <a class="nav-tab" rel="credits" href="<?php echo admin_url('options-general.php?page=feelbox#credits'); ?>">
+  <?php _e("Credits","fl3r-feelbox");?>
+  </a> <a class="nav-tab" rel="donate" href="<?php echo admin_url('options-general.php?page=feelbox#donate'); ?>">
+  <?php _e("Donate","fl3r-feelbox");?>
+  </a></h2>
+<h3>
+  <?php _e("Most voted by mood","fl3r-feelbox");?>
+</h3>
+<p>
+  <?php _e("To get an accurate read of the posts people care about, we're only counting posts that have more than one vote.","fl3r-feelbox");?>
+</p>
 <div id="tabs">
   <?php for ($i=1; $i<=6; $i=$i+1) { ?>
-  <a href="#" class="<?php if ($i==1) echo 'button-primary'; else echo 'button-secondary'; ?>" rel="mood_<?php echo $i; ?>">Most <?php echo $moods[$i]; ?></a>
+  <a href="#" class="<?php if ($i==1) echo 'button-primary'; else echo 'button-secondary'; ?>" rel="mood_<?php echo $i; ?>">
+  <?php _e("Most","fl3r-feelbox");?>
+  <?php echo $moods[$i]; ?></a>
   <?php } ?>
 </div>
 <?php	
@@ -592,8 +670,31 @@ function feelbox_printmoodtables() {
 		$objs = $wpdb->get_results( feelbox_get_moods_sql($i, 10) );
 		
 		echo '<div class="mood_table" id="mood_' . $i . '">';
-		echo '<h4>Most ' . $moods[$i] . '</h4><table class="widefat">';
-		echo '<thead><tr><th>Post</th><th>Votes</th><th>Total</th><th>Relative percentage</th><th>Weighted score</th></tr></thead>';
+		echo '<h4><?php _e("Most","fl3r-feelbox");?> ' . $moods[$i] . '</h4><table class="widefat">';
+		
+		
+		
+		echo '<thead><tr><th>';
+		echo '<th>';
+					_e("Post","fl3r-feelbox");
+		echo '</th>';
+		echo '<th>';
+					_e("Votes","fl3r-feelbox");
+		echo '</th>';			
+		echo '<th>';
+					_e("Total","fl3r-feelbox");
+		echo '</th>';
+		echo '<th>';
+					_e("Relative percentage","fl3r-feelbox");
+		echo '</th>';
+		echo '<th>';
+					_e("Weighted score","fl3r-feelbox");
+		echo '</th>';
+		echo '</tr></thead>';
+
+		
+		
+		
 		if (sizeof($objs) > 0) {
 			foreach ($objs as $obj) {
 				echo '<tr>';
@@ -605,13 +706,25 @@ function feelbox_printmoodtables() {
 				echo '</tr>';
 			}
 		} else {
-			echo '<tr><td colspan="3">No one has voted for this. Not yet.</td></tr>';
-		}
+					echo '<tr><td colspan="3">';
+					_e("No one has voted for this. Not yet.","fl3r-feelbox");
+		echo '</td></tr>';
+				}
 		echo '</table>';
 		echo '</div>';
 	} ?>
-<h3>Most voted by date</h3>
-<div id="tabs2"> <a href="#" class="button-secondary" rel="totalvotes">Most voted ever</a> <a href="#" class="button-secondary" rel="monthly">Most voted in the past month</a> <a href="#" class="button-secondary" rel="weekly">Most voted in the past week</a> <a href="#" class="button-primary" rel="daily">Most voted in the past day</a> </div>
+<h3>
+  <?php _e("Most voted by date","fl3r-feelbox");?>
+</h3>
+<div id="tabs2"> <a href="#" class="button-secondary" rel="totalvotes">
+  <?php _e("Most voted ever","fl3r-feelbox");?>
+  </a> <a href="#" class="button-secondary" rel="monthly">
+  <?php _e("Most voted in the past month","fl3r-feelbox");?>
+  </a> <a href="#" class="button-secondary" rel="weekly">
+  <?php _e("Most voted in the past week","fl3r-feelbox");?>
+  </a> <a href="#" class="button-primary" rel="daily">
+  <?php _e("Most voted in the past day","fl3r-feelbox");?>
+  </a> </div>
 <?php
 	$objs = $wpdb->get_results( feelbox_get_most_clicked_sql( NULL, 10 ) );
 
@@ -630,13 +743,13 @@ function feelbox_printmoodtables() {
 			echo '</tr>';
 		}
 	} else {
-		echo '<tr><td colspan="3">No one has voted for this. Not yet.</td></tr>';
+		echo '<tr><td colspan="3"><?php _e("No one has voted for this. Not yet.","fl3r-feelbox");?></td></tr>';
 	}
 	echo '</table></div>';
 
 	$objs = $wpdb->get_results( feelbox_get_most_clicked_sql( "30 DAY", 10 ) );
 
-	echo '<div class="totaltable" id="monthly"><h4>Most Voted in the past month</h4><table class="widefat">';
+	echo '<div class="totaltable" id="monthly"><h4><?php _e("Most Voted in the past month","fl3r-feelbox");?></h4><table class="widefat">';
 	echo '<thead><tr><th>Post</th><th>'. $moods[1] .'</th><th>'. $moods[2] .'</th><th>'. $moods[3] .'</th><th>'. $moods[4] .'</th><th>'. $moods[5] .'</th><th>'. $moods[6] .'</th></tr></thead>';
 	if (sizeof($objs) > 0) {
 		foreach ($objs as $obj) {
@@ -651,13 +764,13 @@ function feelbox_printmoodtables() {
 			echo '</tr>';
 		}
 	} else {
-		echo '<tr><td colspan="3">No one has voted for this. Not yet.</td></tr>';
+		echo '<tr><td colspan="3"><?php _e("No one has voted for this. Not yet.","fl3r-feelbox");?></td></tr>';
 	}
 	echo '</table></div>';
 
 	$objs = $wpdb->get_results( feelbox_get_most_clicked_sql( "7 DAY", 10 ) );
 
-	echo '<div class="totaltable" id="weekly"><h4>Most voted in the past week</h4><table class="widefat">';
+	echo '<div class="totaltable" id="weekly"><h4><?php _e("Most voted in the past week","fl3r-feelbox");?></h4><table class="widefat">';
 	echo '<thead><tr><th>Post</th><th>'. $moods[1] .'</th><th>'. $moods[2] .'</th><th>'. $moods[3] .'</th><th>'. $moods[4] .'</th><th>'. $moods[5] .'</th><th>'. $moods[6] .'</th</tr></thead>';
 	if (sizeof($objs) > 0) {
 		foreach ($objs as $obj) {
@@ -672,14 +785,14 @@ function feelbox_printmoodtables() {
 			echo '</tr>';
 		}
 	} else {
-		echo '<tr><td colspan="3">No one has voted for this. Not yet.</td></tr>';
+		echo '<tr><td colspan="3"><?php _e("No one has voted for this. Not yet.","fl3r-feelbox");?></td></tr>';
 	}
 	echo '</table></div>';
 
 	$objs = $wpdb->get_results( feelbox_get_most_clicked_sql( "1 DAY", 10 ) );
 
 
-	echo '<div class="totaltable" id="daily"><h4>Most voted in the past day</h4><table class="widefat">';
+	echo '<div class="totaltable" id="daily"><h4><?php _e("Most voted in the past day","fl3r-feelbox");?></h4><table class="widefat">';
 	echo '<thead><tr><th>Post</th><th>'. $moods[1] .'</th><th>'. $moods[2] .'</th><th>'. $moods[3] .'</th><th>'. $moods[4] .'</th><th>'. $moods[5] .'</th><th>'. $moods[6] .'</th></tr></thead>';
 	if (sizeof($objs) > 0) {
 		foreach ($objs as $obj) {
@@ -694,7 +807,7 @@ function feelbox_printmoodtables() {
 			echo '</tr>';
 		}
 	} else {
-		echo '<tr><td colspan="3">No one has voted for this. Not yet.</td></tr>';
+		echo '<tr><td colspan="3"><?php _e("No one has voted for this. Not yet.","fl3r-feelbox");?></td></tr>';
 	}
 	echo '</table></div></div>';
 }

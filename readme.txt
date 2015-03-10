@@ -40,6 +40,10 @@ A FAQ section is available from the FeelBox Stats and FeelBox Settings pages. If
 
 == Changelog ==
 
+= 3.1 =
+* Hidden PayPal frontend button, based on your suggestions.
+* Italian localization.
+
 = 3.0 =
 * New responsive layout.
 * Visual optimization for mobile browsers.
@@ -54,7 +58,7 @@ A FAQ section is available from the FeelBox Stats and FeelBox Settings pages. If
 * New share icons flat design.
 * New webfont to improve compatibility, stored in plugin.
 * Code optimization.
-* Add Paypal donation buttons.
+* Add PayPal donation buttons.
 
 = 1.1 =
 * Successfully tested on various themes.

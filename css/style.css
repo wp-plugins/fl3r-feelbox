@@ -79,7 +79,7 @@
 	margin-top: 2px;
 	min-height: 24px;
 	text-indent: -99999px;
-	width: 102px;
+	width: 27px;
 }
 #paypal span {
 	background: url("../images/donate-paypal-frontend.png") no-repeat scroll 0 0 transparent;
@@ -358,7 +358,7 @@ div#feelbox-s {
 	margin-top: 2px;
 	min-height: 24px;
 	text-indent: -99999px;
-	width: 30px;
+	width: 27px;
 }
 #feelbox-twitter-button {
 	background-image: url(../images/share-twitter.png);
