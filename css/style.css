@@ -18,6 +18,7 @@
 	line-height: 1em;
 	clear: both;
 	position: relative;
+	margin: 0 auto;
 }
 #feelbox-widget #lyr1 {
 	position: absolute;
