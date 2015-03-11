@@ -40,6 +40,9 @@ A FAQ section is available from the FeelBox Stats and FeelBox Settings pages. If
 
 == Changelog ==
 
+= 3.2 =
+* Little CSS update.
+
 = 3.1 =
 * Hidden PayPal frontend button, based on your suggestions.
 * Italian localization.

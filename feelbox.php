@@ -3,7 +3,7 @@
 Plugin Name: FL3R FeelBox
 Plugin URI: https://wordpress.org/plugins/fl3r-feelbox/
 Description: Adds a one-click real-time mood rating widget to all of your posts.
-Version: 3.1
+Version: 3.2
 Author: Armando "FL3R" Fiore
 E-Mail: armandofioreinfo@gmail.com
 Author URI: https://www.twitter.com/Armando_Fiore
