@@ -3,22 +3,25 @@
 Plugin Name: FL3R FeelBox
 Plugin URI: https://wordpress.org/plugins/fl3r-feelbox/
 Description: Adds a one-click real-time mood rating widget to all of your posts.
-Version: 3.2
+Version: 3.3
 Author: Armando "FL3R" Fiore
 E-Mail: armandofioreinfo@gmail.com
 Author URI: https://www.twitter.com/Armando_Fiore
 License: Freeware, no warranty. Modifications not allowed.
 */
-
+ 
 load_plugin_textdomain('fl3r-feelbox', NULL, dirname(plugin_basename(__FILE__)) . "/languages");
-
 define('feelbox_PLUGIN_DIR', plugins_url(basename(dirname(__FILE__))));
 
 global $lydl_db_version;
 global $moods;
+global $use_centralized_site;
+global $feelbox_server;
 global $nothumb;
 
+$use_centralized_site = FALSE;
 $lydl_db_version = "0.6";
+$feelbox_server = "";
 $moods = array(1 => "Fascinated", 2 => "Happy", 3 => "Sad", 4 => "Angry", 5 => "Bored", 6 => "Afraid");
 $cookie_duration = 14;
 $nothumb = feelbox_PLUGIN_DIR . '/no_thumb.jpg';
@@ -75,10 +78,16 @@ function feelbox_add_default_options() {
 		'showsparkbar' => 'on',
 		'showinpostsondefault' => 'on',
 		'showtweetfollowup' => 'on',
+		'validkey' => '0',
 		'sortmoods' => 'off'
 	);
 	
 	update_option('feelbox_wp_options', $temp);
+}
+
+function feelbox_website_and_apikey_match() {
+	$options = get_option('feelbox_wp_options');
+	return $options['validkey'] == '1';
 }
 
 function feelbox_get_widget_html() {
@@ -86,53 +95,35 @@ function feelbox_get_widget_html() {
 	global $post;
 	global $moods;
 
-	{
+	if ( ( $use_centralized_site == FALSE ) || ($use_centralized_site == TRUE && feelbox_website_and_apikey_match()) ) {
 		$post_id = (int)$post->ID;
 		$obj = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}lydl_posts WHERE ID=" . $post_id, ARRAY_A);
-		$sum = $obj["emotion_1"]+$obj["emotion_2"]+$obj["emotion_3"]+$obj["emotion_4"]+$obj["emotion_5"]+$obj["emotion_6"];		
-		
-		
-		$widgethtml = '<div id="feelbox-widget" class="voted"><div id="lyr2"><div id="feelbox-bold">Share your vote!</div>
-			
-			
-			
-			
+		        $sum = $obj["emotion_1"]+$obj["emotion_2"]+$obj["emotion_3"]+$obj["emotion_4"]+$obj["emotion_5"]+$obj["emotion_6"];      
+         
+        $widgethtml = '<div id="feelbox-widget" class="voted"><div id="lyr2"><div id="feelbox-bold">Share your vote!</div> 
 		<BR>
 		<BR>
 		<div>
 		
-		<a id="feelbox-twitter-button" class="socialmedia" href="https://twitter.com/share?url=' . get_permalink() . '&related=Armando_Fiore&hashtags=FL3RFeelBox&text=I%20just%20voted%20on%20the%20post%20\"' . get_the_title() . '\"">share</a>
-		
-		<a id="feelbox-facebook-button" class="socialmedia" href="http://www.facebook.com/sharer/sharer.php?s=100&p[title]=' . get_the_title() . '&p[url]=' . get_permalink() . '&p[summary]=I+just+voted+on+this+post+with+feelbox!">share</a>
-		
-		<a id="feelbox-googleplus-button" class="socialmedia" href="https://plus.google.com/share?url=' . get_the_title() . '&p[url]=' . get_permalink() . '&p[summary]=I+just+voted+on+this+post+with+feelbox!">share</a>
-
-</div>
-
-<div id="feelbox-s"><a href="#" id="clr">No, thanks.</a></div></div>
+		        <a id="feelbox-twitter-button" class="socialmedia" href="https://twitter.com/share?url=' . get_permalink() . '&related=Armando_Fiore&hashtags=FL3RFeelBox&text=I%20just%20voted%20on%20the%20post%20\"' . get_the_title() . '\"">share</a> 
+ 	
+ 	        <a id="feelbox-facebook-button" class="socialmedia" href="http://www.facebook.com/sharer/sharer.php?s=100&p[title]=' . get_the_title() . '&p[url]=' . get_permalink() . '&p[summary]=I+just+voted+on+this+post+with+feelbox!">share</a> 
+ 		         
+ 	        <a id="feelbox-googleplus-button" class="socialmedia" href="https://plus.google.com/share?url=' . get_the_title() . '&p[url]=' . get_permalink() . '&p[summary]=I+just+voted+on+this+post+with+feelbox!">share</a> 
+ 		 
+ 		</div> 
+ 		 
+ 		<div id="feelbox-s"><a href="#" id="clr">No, thanks.</a></div></div> 
 
 			<div id="lyr1"></div>
 			<div id="hdr">
-			 <!--
-			<div id="paypal"><a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2PCZCTKZ86ANA" title="Donate with PayPal"><span> </span></a></div>
-			--!>
-				<div id="title">
-					<a target="_blank" href="https://wordpress.org/plugins/fl3r-feelbox/" title="FL3R FeelBox on Wordpress.org"><span> </span></a>
+				 <!-- 
+ 	            <div id="paypal"><a target="_blank" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2PCZCTKZ86ANA" title="Donate with PayPal"><span> </span></a></div> 
+ 	            --!> 
+ 	                <div id="title"> 
+ 		                    <a target="_blank" href="https://wordpress.org/plugins/fl3r-feelbox/" title="FL3R FeelBox on Wordpress.org"><span> </span></a> 
 				</div>
-				
-				
-				
-				<div id="feelbox-s">
-				
-How this post make you feel?
-				
-				
-				</div>
-				
-				
-				
-				
-				
+				<div id="feelbox-s">How this post make you feel?</div> 
 			</div>
 			<span id="total"></span><span id="voted"></span>
 			<div id="bd" style="">
@@ -144,27 +135,27 @@ How this post make you feel?
 				</div>
 							
 				<ul>
-					<li id="mdr-e1"><div id="feelbox-cell"><div>
+					<li id="mdr-e1"><div id="feelbox-cell"><div> 
 						<span class="m">' . $moods[1] .'</span>
 						<span class="count"></span><span class="percent"></span>
 					</div></div></li>
-					<li id="mdr-e2"><div id="feelbox-cell"><div>
+					 <li id="mdr-e2"><div id="feelbox-cell"><div> 
 						<span class="m">' . $moods[2] . '</span>
 						<span class="count"></span><span class="percent"></span>
 					</div></div></li>
-					<li id="mdr-e3"><div id="feelbox-cell"><div>
+					<li id="mdr-e3"><div id="feelbox-cell"><div> 
 						<span class="m">' . $moods[3] .'</span>
 						<span class="count"></span><span class="percent"></span>
 					</div></div></li>
-					<li id="mdr-e4"><div id="feelbox-cell"><div>
+					 <li id="mdr-e4"><div id="feelbox-cell"><div> 
 						<span class="m">' . $moods[4] . '</span>
 						<span class="count"></span><span class="percent"></span>
 					</div></div></li>
-					<li id="mdr-e5"><div id="feelbox-cell"><div>
+					<li id="mdr-e5"><div id="feelbox-cell"><div> 
 						<span class="m">' . $moods[5] . '</span>
 						<span class="count"></span><span class="percent"></span>
 					</div></div></li>
-					<li id="mdr-e6"><div id="feelbox-cell"><div>
+					<li id="mdr-e6"><div id="feelbox-cell"><div> 
 						<span class="m">' . $moods[6] . '</span>
 						<span class="count"></span><span class="percent"></span>
 					</div></div></li>
@@ -172,6 +163,8 @@ How this post make you feel?
 			</div>
 		</div>';
 		return $widgethtml;
+	} else {
+		return '';
 	}
 	
 }
@@ -196,7 +189,7 @@ function print_feelbox_shortcode ( ) {
 function lydl_js_header() {
 
   // Define custom JavaScript function
-	global $wp_query;
+	global $wp_query, $feelbox_server, $use_centralized_site;
 	wp_reset_query();
 	$options = get_option('feelbox_wp_options');
 	
@@ -206,7 +199,8 @@ function lydl_js_header() {
 		$nonce = wp_create_nonce('lydl-feelbox');	
 	
 		$id = $wp_query->post->ID;
-
+		
+		// http://www.snipe.net/2008/12/fixing-curly-quotes-and-em-dashes-in-php/
 		$search = array( chr(145), chr(146), chr(147), chr(148), chr(151), '&#8211;', '&#8217;' );
 		$replace = array("'", "'", '"', '"', '-', '-', "'");
 		$strnosmartquotes = str_replace($search, $replace, html_entity_decode(get_the_title()));
@@ -216,8 +210,14 @@ function lydl_js_header() {
 <script type="text/javascript">
 		//<![CDATA[
 		var feelboxAjax = {
+		centralized: '<?php echo $use_centralized_site; ?>',
+		cors: '<?php echo $feelbox_server; ?>',
 		ajaxurl: '<?php echo admin_url( 'admin-ajax.php' ); ?>',
 		token: '<?php echo $nonce; ?>',
+		<?php if ( $use_centralized_site ) : ?>
+		siteid: '<?php echo $options['apiname']; ?>',
+		api: '<?php echo $options['apikey'] ?>',
+		<?php endif; ?>
 		id: <?php echo $id; ?>,
 		title: '<?php echo addslashes($strnosmartquotes); ?>',
 		url: '<?php echo the_permalink(); ?>',
@@ -370,6 +370,7 @@ function lydl_install_db_table () {
 			`emotion_4` bigint(20) DEFAULT '0' ,
 			`emotion_5` bigint(20) DEFAULT '0' ,
 			`emotion_6` bigint(20) DEFAULT '0' ,
+			UNIQUE KEY  `ID` (`ID`)
 		);";	
 		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 		dbDelta($sql);	
