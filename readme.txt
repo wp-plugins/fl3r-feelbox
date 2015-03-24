@@ -38,10 +38,13 @@ A FAQ section is available from the FeelBox Stats and FeelBox Settings pages. If
 
 == Upgrade Notice ==
 
-= 3.3 =
-* This version corrects an error found in new installations that did not allow you to use the plugin: during installation were not created tables in the database. If you have installed the version 3.0, 3.1 or 3.2 is absolutely necessary to update to this version. The error is not reported if you have installed the plug-in versions prior to 3.0.
+= 3.3.1 =
+* This version corrects an error found in new installations that did not allow you to use the plugin: during installation were not created tables in the database. If you have installed the version 3.0, 3.1 or 3.2 is absolutely necessary to update to this version. The error was not reported if you have installed versions of the plug-in before 3.0 and later you run the update.
 
 == Changelog ==
+
+= 3.3.1 =
+* Second patch that corrects a serious error in new installations.
 
 = 3.3 =
 * Patch that corrects a serious error in new installations.
