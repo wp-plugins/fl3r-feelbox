@@ -3,7 +3,7 @@
 Plugin Name: FL3R FeelBox
 Plugin URI: https://wordpress.org/plugins/fl3r-feelbox/
 Description: Adds a one-click real-time mood rating widget to all of your posts.
-Version: 3.3
+Version: 3.3.1
 Author: Armando "FL3R" Fiore
 E-Mail: armandofioreinfo@gmail.com
 Author URI: https://www.twitter.com/Armando_Fiore
@@ -27,6 +27,63 @@ $cookie_duration = 14;
 $nothumb = feelbox_PLUGIN_DIR . '/no_thumb.jpg';
 
 require_once( 'feelbox-admin.php' );
+
+function lydl_install_db_table () {
+	global $wpdb;
+	global $lydl_db_version;
+	
+	$table_name = $wpdb->prefix.'lydl_posts';
+	$table_name2 = $wpdb->prefix.'lydl_poststimestamp';
+	$installed_ver = get_option( "lydl_db_version" );
+	
+	if( $installed_ver != $lydl_db_version ) {
+		$sql = "CREATE TABLE " . $table_name . " (
+			`ID` bigint(20) NOT NULL,
+			`emotion_1` bigint(20) DEFAULT '0' ,
+			`emotion_2` bigint(20) DEFAULT '0' ,
+			`emotion_3` bigint(20) DEFAULT '0' ,
+			`emotion_4` bigint(20) DEFAULT '0' ,
+			`emotion_5` bigint(20) DEFAULT '0' ,
+			`emotion_6` bigint(20) DEFAULT '0' ,
+			UNIQUE KEY  `ID` (`ID`)
+		);";	
+		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+		dbDelta($sql);	
+	}
+
+	if( $installed_ver != $lydl_db_version ) {
+		$sql = "CREATE TABLE " . $table_name2 . " (
+			`post_ID` bigint(20) NOT NULL,
+			`day` datetime NOT NULL default '0000-00-00 00:00:00',
+			`votes` bigint(20) DEFAULT '0' ,
+			`emotion` bigint(20) NOT NULL
+		);";	
+		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+		dbDelta($sql);	
+	}
+
+	add_option("lydl_db_version", $lydl_db_version);
+}
+
+$feelbox_plugin = plugin_basename(__FILE__); 
+
+add_filter("plugin_action_links_$feelbox_plugin", 'feelbox_settings_link' );
+register_activation_hook(__FILE__,'lydl_install_db_table');
+add_action('init', 'feelbox_init');
+add_action('admin_menu', 'feelbox_wp_menu');
+add_action('wp_head', 'lydl_js_header' );
+add_action('wp_ajax_cast_vote', 'lydl_ajax_submit');
+add_action('wp_ajax_nopriv_cast_vote', 'lydl_ajax_submit');
+add_action('wp_ajax_check_ip', 'lydl_ajax_checkip');
+add_action('wp_ajax_populate_post', 'lydl_ajax_populate');
+add_action('wp_ajax_nopriv_populate_post', 'lydl_ajax_populate');
+
+function register_feelbox_Widget(){
+register_widget('feelbox_Widget');
+}
+
+add_action('init', 'register_feelbox_Widget', 1);
+add_shortcode( 'feelbox', 'print_feelbox_shortcode' );
 
 function feelbox_init() {
 
@@ -352,62 +409,5 @@ function lydl_ajax_submit() {
 	// IMPORTANT: don't forget to "exit"
 	exit;
 }
-
-function lydl_install_db_table () {
-	global $wpdb;
-	global $lydl_db_version;
-	
-	$table_name = $wpdb->prefix.'lydl_posts';
-	$table_name2 = $wpdb->prefix.'lydl_poststimestamp';
-	$installed_ver = get_option( "lydl_db_version" );
-	
-	if( $installed_ver != $lydl_db_version ) {
-		$sql = "CREATE TABLE " . $table_name . " (
-			`ID` bigint(20) NOT NULL,
-			`emotion_1` bigint(20) DEFAULT '0' ,
-			`emotion_2` bigint(20) DEFAULT '0' ,
-			`emotion_3` bigint(20) DEFAULT '0' ,
-			`emotion_4` bigint(20) DEFAULT '0' ,
-			`emotion_5` bigint(20) DEFAULT '0' ,
-			`emotion_6` bigint(20) DEFAULT '0' ,
-			UNIQUE KEY  `ID` (`ID`)
-		);";	
-		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-		dbDelta($sql);	
-	}
-
-	if( $installed_ver != $lydl_db_version ) {
-		$sql = "CREATE TABLE " . $table_name2 . " (
-			`post_ID` bigint(20) NOT NULL,
-			`day` datetime NOT NULL default '0000-00-00 00:00:00',
-			`votes` bigint(20) DEFAULT '0' ,
-			`emotion` bigint(20) NOT NULL
-		);";	
-		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-		dbDelta($sql);	
-	}
-
-	add_option("lydl_db_version", $lydl_db_version);
-}
-
-$feelbox_plugin = plugin_basename(__FILE__); 
-
-add_filter("plugin_action_links_$feelbox_plugin", 'feelbox_settings_link' );
-register_activation_hook(__FILE__,'lydl_install_db_table');
-add_action('init', 'feelbox_init');
-add_action('admin_menu', 'feelbox_wp_menu');
-add_action('wp_head', 'lydl_js_header' );
-add_action('wp_ajax_cast_vote', 'lydl_ajax_submit');
-add_action('wp_ajax_nopriv_cast_vote', 'lydl_ajax_submit');
-add_action('wp_ajax_check_ip', 'lydl_ajax_checkip');
-add_action('wp_ajax_populate_post', 'lydl_ajax_populate');
-add_action('wp_ajax_nopriv_populate_post', 'lydl_ajax_populate');
-
-function register_feelbox_Widget(){
-register_widget('feelbox_Widget');
-}
-
-add_action('init', 'register_feelbox_Widget', 1);
-add_shortcode( 'feelbox', 'print_feelbox_shortcode' );
 
 ?>
