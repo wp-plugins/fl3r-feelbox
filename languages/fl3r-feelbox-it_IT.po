@@ -1,0 +1,307 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FL3R FeelBox\n"
+"POT-Creation-Date: 2015-03-10 17:59+0100\n"
+"PO-Revision-Date: 2015-03-10 18:17+0100\n"
+"Last-Translator: Armando \"FL3R\" Fiore\n"
+"Language-Team: Armando \"FL3R\" Fiore\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "(at most 10)"
+msgstr "(massimo 10)"
+
+msgid "1 DAY"
+msgstr "1 giorno"
+
+msgid "30 DAY"
+msgstr "30 giorni"
+
+msgid "365 DAYS"
+msgstr "365 giorni"
+
+msgid "7 DAY"
+msgstr "7 giorni"
+
+msgid "All moods have been reset. ლ(ಠ益ಠლ) What did you do?"
+msgstr "Tutti i dati sono stati eliminati. ლ(ಠ益ಠლ) Che cosa hai fatto?"
+
+msgid "Allow people to share on Twitter, Facebook and Google+ after voting."
+msgstr ""
+"Permetti di condividere su Twitter, Facebook e Google+ dopo aver votato."
+
+msgid ""
+"Attention! Don't insert manually the FeelBox code if the Automatic display "
+"option is cecked: it may cause style errors and graphical glitch."
+msgstr ""
+"ATTENZIONE! Non inserire manualmente il codice FeelBox se l'opzione \"Mostra "
+"automaticamete alla fine degli articoli\" è selezionata: può casare errori e "
+"glitch grafici."
+
+msgid "Automatic display"
+msgstr "Mostra automaticamente"
+
+msgid "Automatically display the FeelBox at the end of each blog post."
+msgstr "Mostra automaticamente la FeelBox alla fine di ogni articolo."
+
+msgid ""
+"Automatically sort the moods by popularity. I suggest you leave this box "
+"unchecked."
+msgstr ""
+"Ordina le emozioni in base alla popolarità. Ti suggerisco di lasciare questa "
+"opzione non selezionata."
+
+msgid "But if you want, you can  use the WordPress shortcode"
+msgstr "Ma se lo desideri, puoi utilizzare lo shortcode Wordpress"
+
+msgid "Bypass plugin CSS"
+msgstr "Non considerare il CSS del plugin"
+
+msgid ""
+"Bypass the default and custom CSS used in the FeelBox plug-in and use CSS "
+"from your theme instead. This may be necessary for specific WordPress "
+"Multisite installations. Normally this option should be left unchecked."
+msgstr ""
+"Non considerare i file CSS del plugin usati dalla FeelBox in favore dei CSS "
+"del tuo tema. Potrebbe essere necessario per specifiche installazioni "
+"multisito di WordPress. Normalmente questa opzione dovrebbe essere lasciata "
+"non selezionata."
+
+msgid "Can I manually insert the FeelBox?"
+msgstr "Posso inserire manualmente una FeelBox?"
+
+msgid "Clear all data"
+msgstr "Elimina i dati"
+
+msgid "Copyright"
+msgstr "Copyright"
+
+msgid ""
+"Copyright © Armando \"FL3R\" Fiore. All rights reserved. This software is "
+"provided as is, without any express or implied warranty. In no event shall "
+"the author be liable for any damage arising from the use of this software."
+msgstr ""
+"Copyright © Armando \"FL3R\" Fiore. Tutti i diritti riservati. Questo "
+"software è disponibile così com'è, senza alcuna espressa od implicita "
+"garanzia. In nessun caso l'autore può essere ritenuto responsabile di alcun "
+"danno dovuto all'uso del software."
+
+msgid "Credits"
+msgstr "Crediti"
+
+msgid "Custom CSS"
+msgstr "CSS personalizzato"
+
+msgid "Delete all moods"
+msgstr "Elimina tutti i voti"
+
+msgid "Display post thumbnail. Check and save to change the size."
+msgstr ""
+"Mostra le miniature degli articoli. Clicca e salva per modificarne le "
+"dimensioni."
+
+msgid "Donate"
+msgstr "Donazioni"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid ""
+"FeelBox is a plugin created by Armando \"FL3R\" Fiore. Dedicated to the "
+"beautiful girl who is always by my side, Anna Rita!"
+msgstr ""
+"FeelBox è un plugin creato da Armando \"FL3R\" Fiore. Dedicato alla stupenda "
+"ragazza che è sempre al mio fianco, Anna Rita!"
+
+msgid "Follow me!"
+msgstr "Seguimi!"
+
+msgid "Graphical bar"
+msgstr "Barra dinamica"
+
+msgid "Height:"
+msgstr "Altezza:"
+
+msgid ""
+"Here you can customize your FeelBox Css. The file is stored in the same "
+"directory of original FeelBox style.css."
+msgstr ""
+"Qui puoi personalizzare il CSS della tua FeelBox. Questo file è accessibile "
+"nello stesso percorso del file style.css originale di FeelBox."
+
+msgid ""
+"If the \"Automatic display option\" is checked, the FeelBox will be "
+"automatically display on each  post, right before or after the comments."
+msgstr ""
+"Se l'opzione \"Mostra automaticamente alla fine degli articoli\" è "
+"selezionata, la FeelBox apparirà alla fine di ogni post, immediatamente "
+"prima o dopo i commenti."
+
+msgid "If you like this plugin, you consider making a small donation. Thanks."
+msgstr "Se ti piace questo plugin, considera una piccola donazione. Grazie."
+
+msgid ""
+"If you want to ask me, you want to send your opinion or you have a question "
+"please don't hesitate to contact me."
+msgstr ""
+"Se hai domande, dubbi o suggerimenti da pormi non esitare a contattarmi."
+
+msgid "Most"
+msgstr "Più"
+
+msgid "Most voted by date"
+msgstr "Più votati per data"
+
+msgid "Most voted by mood"
+msgstr "Più votati per reazione"
+
+msgid "Most voted ever"
+msgstr "Più votati in assoluto"
+
+msgid "Most voted in the past day"
+msgstr "Più votati ieri"
+
+msgid "Most voted in the past month"
+msgstr "Più votati nell'ultimo mese"
+
+msgid "Most voted in the past week"
+msgstr "Più votati nell'ultima settimana"
+
+msgid "No one has voted for this. Not yet."
+msgstr "Nessun voto. Per ora."
+
+msgid "Number of posts to display:"
+msgstr "Numero di articoli da mostrare:"
+
+msgid ""
+"Only if this is unchecked, you can use the print_feelbox_widget() PHP "
+"function in your templates or use the [feelbox] shortcode to show the "
+"FeelBox where you want."
+msgstr ""
+"Solo se questa opzione non è selezionata, puoi usare la funzione PHP "
+"print_feelbox_widget() nel tuo template o lo shortcode [feelbox] per "
+"mostrare la FeelBox dove vuoi."
+
+msgid "Plugin settings"
+msgstr "Impostazioni plugin"
+
+msgid "Post"
+msgstr "Articolo"
+
+msgid "Post most"
+msgstr "Articoli più"
+
+msgid "Relative percentage"
+msgstr "Percentuale"
+
+msgid "Save changes"
+msgstr "Salva le impostazioni."
+
+msgid "Settings"
+msgstr "Impostazioni"
+
+msgid "Settings saved. (◕‿◕)"
+msgstr "Impostazioni salvate. (◕‿◕)"
+
+msgid "Show the graphical bar graph above moods."
+msgstr "Mostra la barra dinamica sopra le emozioni."
+
+msgid "Show:"
+msgstr "Mostra:"
+
+msgid "Social media sharing"
+msgstr "Condivisione sui social network"
+
+msgid "Sorting"
+msgstr "Ordinamento"
+
+msgid "Stats"
+msgstr "Statistiche"
+
+msgid "Sure! You can find it in the widget page of your admin panel."
+msgstr "Certo! Lo puoi trovare tra i widget nella dashboard."
+
+msgid ""
+"Thanks for using FeelBox, you helped a developer to increase his self-esteem!"
+msgstr ""
+"Grazie per aver usato FeelBox, hai aiutat uno sviluppatore ad aumentare la "
+"sua autostima!"
+
+msgid "The past 30 days"
+msgstr "L'ultimo mese"
+
+msgid "The past 7 days"
+msgstr "L'ultima settimana"
+
+msgid "The past day"
+msgstr "Ieri"
+
+msgid "The past year"
+msgstr "L'ultimo anno"
+
+msgid "There is a FeelBox widget?"
+msgstr "Esiste un widget FeelBox?"
+
+msgid ""
+"This option will clear all votes and all data in the Stats page. Normally "
+"this is an operation without risk, but to be safe make sure you"
+msgstr ""
+"Questa opzione eliminerà tutti i voti ed i dati nella pagina Statistiche. "
+"Normalmente questa è un'operazione senza rischi, ma per stare sul sicuro fai "
+"un"
+
+msgid "Thumbnail settings"
+msgstr "Impostazioni miniature"
+
+msgid "Title:"
+msgstr "Titolo:"
+
+msgid ""
+"To get an accurate read of the posts people care about, we're only counting "
+"posts that have more than one vote."
+msgstr ""
+"Per avere un risultato migliore, verranno presi in considerazione solo gli "
+"articoli con più di un voto."
+
+msgid "Total"
+msgstr "Totale"
+
+msgid "Votes"
+msgstr "Voti"
+
+msgid "WARNING!"
+msgstr "ATTENZIONE!"
+
+msgid "Weighted score"
+msgstr "Punteggio"
+
+msgid "Width:"
+msgstr "Larghezza:"
+
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Non hai i permessi necessari per accedere a questa pagina."
+
+msgid "in your PHP template, usually on your comment template (comments.php)."
+msgstr ""
+"nel tuo template PHP, solitamente in quello dei commenti (comments.php)."
+
+msgid "or add"
+msgstr "o aggiungere"
+
+msgid ""
+"your database. This operation is irreversible. If you want to proceed, type "
+"<strong>DELETE</strong> in the textbox and click on Save changes button."
+msgstr ""
+"del tuo database. Questa operazione è irreversibile. Se vuoi comunque "
+"procedere, scrivi <strong>DELETE</strong> nella casella e clicca sul "
+"pulsante Salva le impostazioni."
