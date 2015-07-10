@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FL3R FeelBox\n"
-"POT-Creation-Date: 2015-03-10 17:59+0100\n"
-"PO-Revision-Date: 2015-03-10 18:17+0100\n"
+"POT-Creation-Date: 2015-07-10 21:10+0100\n"
+"PO-Revision-Date: 2015-07-10 21:10+0100\n"
 "Last-Translator: Armando \"FL3R\" Fiore\n"
 "Language-Team: Armando \"FL3R\" Fiore\n"
 "Language: it_IT\n"
@@ -18,42 +18,139 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-msgid "(at most 10)"
-msgstr "(massimo 10)"
+#: feelbox-admin.php:82
+msgid "Title:"
+msgstr "Titolo:"
 
-msgid "1 DAY"
-msgstr "1 giorno"
+#: feelbox-admin.php:88
+msgid "Show:"
+msgstr "Mostra:"
 
-msgid "30 DAY"
-msgstr "30 giorni"
-
+#: feelbox-admin.php:90
 msgid "365 DAYS"
 msgstr "365 giorni"
 
+#: feelbox-admin.php:91
+msgid "The past year"
+msgstr "L'ultimo anno"
+
+#: feelbox-admin.php:93
+msgid "30 DAY"
+msgstr "30 giorni"
+
+#: feelbox-admin.php:94
+msgid "The past 30 days"
+msgstr "L'ultimo mese"
+
+#: feelbox-admin.php:96
 msgid "7 DAY"
 msgstr "7 giorni"
 
-msgid "All moods have been reset. ლ(ಠ益ಠლ) What did you do?"
-msgstr "Tutti i dati sono stati eliminati. ლ(ಠ益ಠლ) Che cosa hai fatto?"
+#: feelbox-admin.php:97
+msgid "The past 7 days"
+msgstr "L'ultima settimana"
 
-msgid "Allow people to share on Twitter, Facebook and Google+ after voting."
+#: feelbox-admin.php:99
+msgid "1 DAY"
+msgstr "1 giorno"
+
+#: feelbox-admin.php:100
+msgid "The past day"
+msgstr "Ieri"
+
+#: feelbox-admin.php:104
+msgid "Post most"
+msgstr "Articoli più"
+
+#: feelbox-admin.php:112
+msgid "Number of posts to display:"
+msgstr "Numero di articoli da mostrare:"
+
+#: feelbox-admin.php:117
+msgid "(at most 10)"
+msgstr "(massimo 10)"
+
+#: feelbox-admin.php:122
+msgid "Thumbnail settings"
+msgstr "Impostazioni miniature"
+
+#: feelbox-admin.php:126
+msgid "Display post thumbnail. Check and save to change the size."
 msgstr ""
-"Permetti di condividere su Twitter, Facebook e Google+ dopo aver votato."
+"Mostra le miniature degli articoli. Clicca e salva per modificarne le "
+"dimensioni."
 
-msgid ""
-"Attention! Don't insert manually the FeelBox code if the Automatic display "
-"option is cecked: it may cause style errors and graphical glitch."
-msgstr ""
-"ATTENZIONE! Non inserire manualmente il codice FeelBox se l'opzione \"Mostra "
-"automaticamete alla fine degli articoli\" è selezionata: può casare errori e "
-"glitch grafici."
+#: feelbox-admin.php:131
+msgid "Width:"
+msgstr "Larghezza:"
 
-msgid "Automatic display"
-msgstr "Mostra automaticamente"
+#: feelbox-admin.php:136
+msgid "Height:"
+msgstr "Altezza:"
 
-msgid "Automatically display the FeelBox at the end of each blog post."
-msgstr "Mostra automaticamente la FeelBox alla fine di ogni articolo."
+#: feelbox-admin.php:283 feelbox-admin.php:638
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Non hai i permessi necessari per accedere a questa pagina."
 
+#: feelbox-admin.php:354
+msgid "Settings saved. (◕‿◕)"
+msgstr "Impostazioni salvate. (◕‿◕)"
+
+#: feelbox-admin.php:363 feelbox-admin.php:680
+msgid "Stats"
+msgstr "Statistiche"
+
+#: feelbox-admin.php:365 feelbox-admin.php:682
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: feelbox-admin.php:367 feelbox-admin.php:684
+msgid "Custom CSS"
+msgstr "CSS personalizzato"
+
+#: feelbox-admin.php:369 feelbox-admin.php:505 feelbox-admin.php:686
+msgid "FAQ"
+msgstr "FAQ"
+
+#: feelbox-admin.php:371 feelbox-admin.php:552 feelbox-admin.php:688
+msgid "Credits"
+msgstr "Crediti"
+
+#: feelbox-admin.php:373 feelbox-admin.php:453 feelbox-admin.php:489
+#: feelbox-admin.php:536 feelbox-admin.php:574 feelbox-admin.php:590
+#: feelbox-admin.php:690
+msgid "Donate"
+msgstr "Donazioni"
+
+#: feelbox-admin.php:379
+msgid "Plugin settings"
+msgstr "Impostazioni plugin"
+
+#: feelbox-admin.php:384
+msgid "Title"
+msgstr "Titolo"
+
+#: feelbox-admin.php:387
+msgid "The title before FeelBox."
+msgstr "Il titolo prima della FeelBox."
+
+#: feelbox-admin.php:390
+msgid "The default option is 'How this post make you feel?'."
+msgstr "L'opzione predefinita è 'How this post make you feel?'."
+
+#: feelbox-admin.php:394
+msgid "Graphical bar"
+msgstr "Barra dinamica"
+
+#: feelbox-admin.php:397
+msgid "Show the graphical bar graph above moods."
+msgstr "Mostra la barra dinamica sopra le emozioni."
+
+#: feelbox-admin.php:401
+msgid "Sorting"
+msgstr "Ordinamento"
+
+#: feelbox-admin.php:404
 msgid ""
 "Automatically sort the moods by popularity. I suggest you leave this box "
 "unchecked."
@@ -61,12 +158,85 @@ msgstr ""
 "Ordina le emozioni in base alla popolarità. Ti suggerisco di lasciare questa "
 "opzione non selezionata."
 
-msgid "But if you want, you can  use the WordPress shortcode"
-msgstr "Ma se lo desideri, puoi utilizzare lo shortcode Wordpress"
+#: feelbox-admin.php:408
+msgid "Automatic display"
+msgstr "Mostra automaticamente"
 
+#: feelbox-admin.php:411
+msgid "Automatically display the FeelBox at the end of each blog post."
+msgstr "Mostra automaticamente la FeelBox alla fine di ogni articolo."
+
+#: feelbox-admin.php:414
+msgid ""
+"Only if this is unchecked, you can use the print_feelbox_widget() PHP "
+"function in your templates or use the [feelbox] shortcode to show the "
+"FeelBox where you want."
+msgstr ""
+"Solo se questa opzione non è selezionata, puoi usare la funzione PHP "
+"print_feelbox_widget() nel tuo template o lo shortcode [feelbox] per "
+"mostrare la FeelBox dove vuoi."
+
+#: feelbox-admin.php:418
+msgid "Social media sharing"
+msgstr "Condivisione sui social network"
+
+#: feelbox-admin.php:421
+msgid "Allow people to share on Twitter, Facebook and Google+ after voting."
+msgstr ""
+"Permetti di condividere su Twitter, Facebook e Google+ dopo aver votato."
+
+#: feelbox-admin.php:427
+msgid "Delete all moods"
+msgstr "Elimina tutti i voti"
+
+#: feelbox-admin.php:432
+msgid "Clear all data"
+msgstr "Elimina i dati"
+
+#: feelbox-admin.php:437
+msgid "WARNING!"
+msgstr "ATTENZIONE!"
+
+#: feelbox-admin.php:440
+msgid ""
+"This option will clear all votes and all data in the Stats page. Normally "
+"this is an operation without risk, but to be safe make sure you"
+msgstr ""
+"Questa opzione eliminerà tutti i voti ed i dati nella pagina Statistiche. "
+"Normalmente questa è un'operazione senza rischi, ma per stare sul sicuro fai "
+"un"
+
+#: feelbox-admin.php:442
+msgid ""
+"your database. This operation is irreversible. If you want to proceed, type "
+"<strong>DELETE</strong> in the textbox and click on Save changes button."
+msgstr ""
+"del tuo database. Questa operazione è irreversibile. Se vuoi comunque "
+"procedere, scrivi <strong>DELETE</strong> nella casella e clicca sul "
+"pulsante Salva le impostazioni."
+
+#: feelbox-admin.php:449 feelbox-admin.php:486
+msgid "Save changes"
+msgstr "Salva le impostazioni."
+
+#: feelbox-admin.php:456 feelbox-admin.php:492 feelbox-admin.php:539
+#: feelbox-admin.php:577 feelbox-admin.php:593
+msgid "If you like this plugin, you consider making a small donation. Thanks."
+msgstr "Se ti piace questo plugin, considera una piccola donazione. Grazie."
+
+#: feelbox-admin.php:471
+msgid ""
+"Here you can customize your FeelBox Css. The file is stored in the same "
+"directory of original FeelBox style.css."
+msgstr ""
+"Qui puoi personalizzare il CSS della tua FeelBox. Questo file è accessibile "
+"nello stesso percorso del file style.css originale di FeelBox."
+
+#: feelbox-admin.php:477
 msgid "Bypass plugin CSS"
 msgstr "Non considerare il CSS del plugin"
 
+#: feelbox-admin.php:480
 msgid ""
 "Bypass the default and custom CSS used in the FeelBox plug-in and use CSS "
 "from your theme instead. This may be necessary for specific WordPress "
@@ -77,15 +247,81 @@ msgstr ""
 "multisito di WordPress. Normalmente questa opzione dovrebbe essere lasciata "
 "non selezionata."
 
+#: feelbox-admin.php:508
+msgid "There is a FeelBox widget?"
+msgstr "Esiste un widget FeelBox?"
+
+#: feelbox-admin.php:511
+msgid "Sure! You can find it in the widget page of your admin panel."
+msgstr "Certo! Lo puoi trovare tra i widget nella dashboard."
+
+#: feelbox-admin.php:514
 msgid "Can I manually insert the FeelBox?"
 msgstr "Posso inserire manualmente una FeelBox?"
 
-msgid "Clear all data"
-msgstr "Elimina i dati"
+#: feelbox-admin.php:517
+msgid ""
+"If the \"Automatic display option\" is checked, the FeelBox will be "
+"automatically display on each  post, right before or after the comments."
+msgstr ""
+"Se l'opzione \"Mostra automaticamente alla fine degli articoli\" è "
+"selezionata, la FeelBox apparirà alla fine di ogni post, immediatamente "
+"prima o dopo i commenti."
 
+#: feelbox-admin.php:520
+msgid "But if you want, you can  use the WordPress shortcode"
+msgstr "Ma se lo desideri, puoi utilizzare lo shortcode Wordpress"
+
+#: feelbox-admin.php:522
+msgid "or add"
+msgstr "o aggiungere"
+
+#: feelbox-admin.php:524
+msgid "in your PHP template, usually on your comment template (comments.php)."
+msgstr ""
+"nel tuo template PHP, solitamente in quello dei commenti (comments.php)."
+
+#: feelbox-admin.php:527
+msgid ""
+"Attention! Don't insert manually the FeelBox code if the Automatic display "
+"option is cecked: it may cause style errors and graphical glitch."
+msgstr ""
+"ATTENZIONE! Non inserire manualmente il codice FeelBox se l'opzione \"Mostra "
+"automaticamete alla fine degli articoli\" è selezionata: può casare errori e "
+"glitch grafici."
+
+#: feelbox-admin.php:530
+msgid "How can I translate FeelBox in my language?"
+msgstr "Come posso tradurre FeelBox nella mia lingua?"
+
+#: feelbox-admin.php:533
+msgid ""
+"Inside the folder 'languages' there is the .po file that allows you to "
+"translate FeelBox in any language."
+msgstr ""
+"Nella cartella 'languages' c'è il file .po che ti consente di tradurre "
+"FeelBox in qualsiasi lingua."
+
+#: feelbox-admin.php:555
+msgid ""
+"FeelBox is a plugin created by Armando \"FL3R\" Fiore. Dedicated to the "
+"beautiful girl who is always by my side, Anna Rita!"
+msgstr ""
+"FeelBox è un plugin creato da Armando \"FL3R\" Fiore. Dedicato alla stupenda "
+"ragazza che è sempre al mio fianco, Anna Rita!"
+
+#: feelbox-admin.php:558
+msgid ""
+"Thanks for using FeelBox, you helped a developer to increase his self-esteem!"
+msgstr ""
+"Grazie per aver usato FeelBox, hai aiutato uno sviluppatore ad aumentare la "
+"sua autostima!"
+
+#: feelbox-admin.php:561
 msgid "Copyright"
 msgstr "Copyright"
 
+#: feelbox-admin.php:564
 msgid ""
 "Copyright © Armando \"FL3R\" Fiore. All rights reserved. This software is "
 "provided as is, without any express or implied warranty. In no event shall "
@@ -96,176 +332,26 @@ msgstr ""
 "garanzia. In nessun caso l'autore può essere ritenuto responsabile di alcun "
 "danno dovuto all'uso del software."
 
-msgid "Credits"
-msgstr "Crediti"
-
-msgid "Custom CSS"
-msgstr "CSS personalizzato"
-
-msgid "Delete all moods"
-msgstr "Elimina tutti i voti"
-
-msgid "Display post thumbnail. Check and save to change the size."
-msgstr ""
-"Mostra le miniature degli articoli. Clicca e salva per modificarne le "
-"dimensioni."
-
-msgid "Donate"
-msgstr "Donazioni"
-
-msgid "FAQ"
-msgstr "FAQ"
-
-msgid ""
-"FeelBox is a plugin created by Armando \"FL3R\" Fiore. Dedicated to the "
-"beautiful girl who is always by my side, Anna Rita!"
-msgstr ""
-"FeelBox è un plugin creato da Armando \"FL3R\" Fiore. Dedicato alla stupenda "
-"ragazza che è sempre al mio fianco, Anna Rita!"
-
+#: feelbox-admin.php:567
 msgid "Follow me!"
 msgstr "Seguimi!"
 
-msgid "Graphical bar"
-msgstr "Barra dinamica"
-
-msgid "Height:"
-msgstr "Altezza:"
-
-msgid ""
-"Here you can customize your FeelBox Css. The file is stored in the same "
-"directory of original FeelBox style.css."
-msgstr ""
-"Qui puoi personalizzare il CSS della tua FeelBox. Questo file è accessibile "
-"nello stesso percorso del file style.css originale di FeelBox."
-
-msgid ""
-"If the \"Automatic display option\" is checked, the FeelBox will be "
-"automatically display on each  post, right before or after the comments."
-msgstr ""
-"Se l'opzione \"Mostra automaticamente alla fine degli articoli\" è "
-"selezionata, la FeelBox apparirà alla fine di ogni post, immediatamente "
-"prima o dopo i commenti."
-
-msgid "If you like this plugin, you consider making a small donation. Thanks."
-msgstr "Se ti piace questo plugin, considera una piccola donazione. Grazie."
-
+#: feelbox-admin.php:570
 msgid ""
 "If you want to ask me, you want to send your opinion or you have a question "
 "please don't hesitate to contact me."
 msgstr ""
 "Se hai domande, dubbi o suggerimenti da pormi non esitare a contattarmi."
 
-msgid "Most"
-msgstr "Più"
+#: feelbox-admin.php:621
+msgid "All moods have been reset. ლ(ಠ益ಠლ) What did you do?"
+msgstr "Tutti i dati sono stati eliminati. ლ(ಠ益ಠლ) Che cosa hai fatto?"
 
-msgid "Most voted by date"
-msgstr "Più votati per data"
-
+#: feelbox-admin.php:693
 msgid "Most voted by mood"
 msgstr "Più votati per reazione"
 
-msgid "Most voted ever"
-msgstr "Più votati in assoluto"
-
-msgid "Most voted in the past day"
-msgstr "Più votati ieri"
-
-msgid "Most voted in the past month"
-msgstr "Più votati nell'ultimo mese"
-
-msgid "Most voted in the past week"
-msgstr "Più votati nell'ultima settimana"
-
-msgid "No one has voted for this. Not yet."
-msgstr "Nessun voto. Per ora."
-
-msgid "Number of posts to display:"
-msgstr "Numero di articoli da mostrare:"
-
-msgid ""
-"Only if this is unchecked, you can use the print_feelbox_widget() PHP "
-"function in your templates or use the [feelbox] shortcode to show the "
-"FeelBox where you want."
-msgstr ""
-"Solo se questa opzione non è selezionata, puoi usare la funzione PHP "
-"print_feelbox_widget() nel tuo template o lo shortcode [feelbox] per "
-"mostrare la FeelBox dove vuoi."
-
-msgid "Plugin settings"
-msgstr "Impostazioni plugin"
-
-msgid "Post"
-msgstr "Articolo"
-
-msgid "Post most"
-msgstr "Articoli più"
-
-msgid "Relative percentage"
-msgstr "Percentuale"
-
-msgid "Save changes"
-msgstr "Salva le impostazioni."
-
-msgid "Settings"
-msgstr "Impostazioni"
-
-msgid "Settings saved. (◕‿◕)"
-msgstr "Impostazioni salvate. (◕‿◕)"
-
-msgid "Show the graphical bar graph above moods."
-msgstr "Mostra la barra dinamica sopra le emozioni."
-
-msgid "Show:"
-msgstr "Mostra:"
-
-msgid "Social media sharing"
-msgstr "Condivisione sui social network"
-
-msgid "Sorting"
-msgstr "Ordinamento"
-
-msgid "Stats"
-msgstr "Statistiche"
-
-msgid "Sure! You can find it in the widget page of your admin panel."
-msgstr "Certo! Lo puoi trovare tra i widget nella dashboard."
-
-msgid ""
-"Thanks for using FeelBox, you helped a developer to increase his self-esteem!"
-msgstr ""
-"Grazie per aver usato FeelBox, hai aiutat uno sviluppatore ad aumentare la "
-"sua autostima!"
-
-msgid "The past 30 days"
-msgstr "L'ultimo mese"
-
-msgid "The past 7 days"
-msgstr "L'ultima settimana"
-
-msgid "The past day"
-msgstr "Ieri"
-
-msgid "The past year"
-msgstr "L'ultimo anno"
-
-msgid "There is a FeelBox widget?"
-msgstr "Esiste un widget FeelBox?"
-
-msgid ""
-"This option will clear all votes and all data in the Stats page. Normally "
-"this is an operation without risk, but to be safe make sure you"
-msgstr ""
-"Questa opzione eliminerà tutti i voti ed i dati nella pagina Statistiche. "
-"Normalmente questa è un'operazione senza rischi, ma per stare sul sicuro fai "
-"un"
-
-msgid "Thumbnail settings"
-msgstr "Impostazioni miniature"
-
-msgid "Title:"
-msgstr "Titolo:"
-
+#: feelbox-admin.php:696
 msgid ""
 "To get an accurate read of the posts people care about, we're only counting "
 "posts that have more than one vote."
@@ -273,35 +359,50 @@ msgstr ""
 "Per avere un risultato migliore, verranno presi in considerazione solo gli "
 "articoli con più di un voto."
 
-msgid "Total"
-msgstr "Totale"
+#: feelbox-admin.php:701
+msgid "Most"
+msgstr "Più"
 
+#: feelbox-admin.php:716
+msgid "Post"
+msgstr "Articolo"
+
+#: feelbox-admin.php:719
 msgid "Votes"
 msgstr "Voti"
 
-msgid "WARNING!"
-msgstr "ATTENZIONE!"
+#: feelbox-admin.php:722
+msgid "Total"
+msgstr "Totale"
 
+#: feelbox-admin.php:725
+msgid "Relative percentage"
+msgstr "Percentuale"
+
+#: feelbox-admin.php:728
 msgid "Weighted score"
 msgstr "Punteggio"
 
-msgid "Width:"
-msgstr "Larghezza:"
+#: feelbox-admin.php:747
+msgid "No one has voted for this. Not yet."
+msgstr "Nessun voto. Per ora."
 
-msgid "You do not have sufficient permissions to access this page."
-msgstr "Non hai i permessi necessari per accedere a questa pagina."
+#: feelbox-admin.php:754
+msgid "Most voted by date"
+msgstr "Più votati per data"
 
-msgid "in your PHP template, usually on your comment template (comments.php)."
-msgstr ""
-"nel tuo template PHP, solitamente in quello dei commenti (comments.php)."
+#: feelbox-admin.php:757
+msgid "Most voted ever"
+msgstr "Più votati in assoluto"
 
-msgid "or add"
-msgstr "o aggiungere"
+#: feelbox-admin.php:759
+msgid "Most voted in the past month"
+msgstr "Più votati nell'ultimo mese"
 
-msgid ""
-"your database. This operation is irreversible. If you want to proceed, type "
-"<strong>DELETE</strong> in the textbox and click on Save changes button."
-msgstr ""
-"del tuo database. Questa operazione è irreversibile. Se vuoi comunque "
-"procedere, scrivi <strong>DELETE</strong> nella casella e clicca sul "
-"pulsante Salva le impostazioni."
+#: feelbox-admin.php:761
+msgid "Most voted in the past week"
+msgstr "Più votati nell'ultima settimana"
+
+#: feelbox-admin.php:763
+msgid "Most voted in the past day"
+msgstr "Più votati ieri"
