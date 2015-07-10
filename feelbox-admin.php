@@ -4,12 +4,22 @@ load_plugin_textdomain('fl3r-feelbox', NULL, dirname(plugin_basename(__FILE__)) 
 define('feelbox_CSS_DEFAULT', feelbox_PLUGIN_DIR . '/css/style-custom.css');
 define('feelbox_CSS_FILE', WP_CONTENT_DIR . '/uploads/feelbox-custom.css');
 define('feelbox_CSS_URI', WP_CONTENT_URL . '/uploads/feelbox-custom.css');
+global $feelbox_wp_options;
+global $fl3rfeelboxtitle;
 
 
 // duration: can be a string like "1 DAY", "30 DAY", "7 DAY", etc. 
 // If blank string or null then remove the interval from the SQL statement completely.
 function feelbox_get_most_clicked_sql( $duration, $limit ) {
 	global $wpdb;
+	global $feelbox_wp_options;
+	$is_in_database = $wpdb->get_results( 
+    $wpdb->prepare( "
+        SELECT * FROM feelbox_wp_options
+        WHERE code = %s", 
+        $fl3rfeelboxtitle 
+    ) 
+);
 
 	$intervalstring = ($duration) ? " AND (day + INTERVAL " . $duration . ") >= NOW()" : "";
 
@@ -19,6 +29,7 @@ function feelbox_get_most_clicked_sql( $duration, $limit ) {
 function feelbox_get_moods_sql( $i, $limit ) {
 
 	global $wpdb;
+	global $feelbox_wp_options;
 
 	return "SELECT ID, emotion_" . $i . " as emoted, 
 		(emotion_1 + emotion_2 + emotion_3 + emotion_4 + emotion_5 + emotion_6
@@ -52,6 +63,7 @@ class feelbox_Widget extends WP_Widget {
 	function form($instance) {
 	
 		global $moods;
+		global $fl3rfeelboxtitle;
 		
 		// outputs the options form on admin
 		$title = ($instance['title'] == '') ? 'Most emotional posts' : esc_attr($instance['title']);
@@ -150,6 +162,7 @@ class feelbox_Widget extends WP_Widget {
 		
 		global $wpdb; 
 		global $nothumb;
+		global $feelbox_wp_options;
 		
 		extract($args);
 		$title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
@@ -258,6 +271,8 @@ function feelbox_settings_page() {
 	global $wpdb;
 	global $moods;
 	global $customcss;
+	global $fl3rfeelboxtitle;
+	global $feelbox_wp_options;
 	
 	$hidden_field_name = 'feelbox_submit_hidden';
 	$options = get_option('feelbox_wp_options');
@@ -310,7 +325,8 @@ function feelbox_settings_page() {
 	});	
 
 	</script>
-<?php 
+<?php
+global $fl3rfeelboxtitle;
 	
 		if( isset($_POST[ $hidden_field_name ]) && $_POST[ $hidden_field_name ] == 'Y' ) {
 		
@@ -322,6 +338,7 @@ function feelbox_settings_page() {
 				$options['sortmoods']				= $_POST[ 'sortmoods' ];
 				$options['showinpostsondefault'] 	= $_POST[ 'showinpostsondefault' ];
 				$options['bypasscss']				= $_POST[ 'bypasscss' ];				
+				$options['fl3rfeelboxtitle']		= $_POST[ 'fl3rfeelboxtitle' ];
 				$options['showtweetfollowup'] 		= ( $_POST[ 'showtweetfollowup' ] ) ? $_POST[ 'showtweetfollowup' ] : 'off' ;
 
 				@file_put_contents(feelbox_CSS_FILE, stripslashes( $_POST[ 'cssbox' ] ) );
@@ -363,6 +380,16 @@ function feelbox_settings_page() {
       </h3>
       <table class="form-table">
         <tbody>
+          <tr valign="top">
+            <th scope="row"><?php _e("Title","fl3r-feelbox");?></th>
+            <td><input type="textbox" id="fl3rfeelboxtitle" name="fl3rfeelboxtitle" value="<?php print_r( $options["fl3rfeelboxtitle"]); ?>">
+              <p>
+                <?php _e("The title before FeelBox.","fl3r-feelbox");?>
+              </p>
+              <p class="description">
+                <?php _e("The default option is 'How this post make you feel?'.","fl3r-feelbox");?>
+              </p></td>
+          </tr>
           <tr valign="top">
             <th scope="row"><?php _e("Graphical bar","fl3r-feelbox");?></th>
             <td><input type="checkbox" id="showsparkbar" name="showsparkbar" <?php if ( $options["showsparkbar"]=='on' ) { echo 'checked="true"'; } ?>>
@@ -499,6 +526,12 @@ function feelbox_settings_page() {
       <p>
         <?php _e("Attention! Don't insert manually the FeelBox code if the Automatic display option is cecked: it may cause style errors and graphical glitch.","fl3r-feelbox");?>
       </p>
+	  <h3>
+        <?php _e("How can I translate FeelBox in my language?","fl3r-feelbox");?>
+      </h3>
+      <p>
+        <?php _e("Inside the folder 'languages' there is the .po file that allows you to translate FeelBox in any language.","fl3r-feelbox");?>
+      </p>
       <h3>
         <?php _e("Donate","fl3r-feelbox");?>
       </h3>
@@ -576,6 +609,7 @@ function feelbox_settings_page() {
 
 function feelbox_reset_moods() {
 	global $wpdb;
+	global $feelbox_wp_options;
 	
 	$table_name = $wpdb->prefix.'lydl_posts';
 	$table_name2 = $wpdb->prefix.'lydl_poststimestamp';	
@@ -593,6 +627,7 @@ function feelbox_dashboard_page() {
 	global $wpdb;
 	global $moods;
 	global $customcss;
+	global $fl3rfeelboxtitle;
 	
 	$hidden_field_name = 'feelbox_submit_hidden';
 	$options = get_option('feelbox_wp_options');
@@ -637,7 +672,9 @@ function feelbox_dashboard_page() {
 function feelbox_printmoodtables() {
 	global $wpdb;
 	global $moods;
-	global $customcss; ?>
+	global $customcss;
+	global $feelbox_wp_options;
+global $fl3rfeelboxtitle;	?>
 <div class="wrap">
 <h2 class="nav-tab-wrapper">FL3R FeelBox <a class="nav-tab nav-tab-active" href="<?php echo admin_url('index.php?page=feelbox'); ?>">
   <?php _e("Stats","fl3r-feelbox");?>

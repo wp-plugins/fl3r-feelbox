@@ -2,10 +2,10 @@
 Tags: widget, plugin, stats, statistics, ratings, rating, poll, vote, voting, mood, emotion, feeling, feedback, comments
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2PCZCTKZ86ANA
 Contributors: armandofiore
-Tested up to: 4.1
+Tested up to: 4.2.2
 Requires at least: 2.9
 Stable Tag: trunk
-License: Freeware, no warranty. Modifications not allowed.
+License: Copyright Armando "FL3R" Fiore, released under GPL v2.
 
 Adds an one-click real-time mood rating FeelBox to all of your posts. Oh, there is also a widget.
 
@@ -42,6 +42,12 @@ A FAQ section is available from the FeelBox Stats and FeelBox Settings pages. If
 * This version corrects an error found in new installations that did not allow you to use the plugin: during installation were not created tables in the database. If you have installed the version 3.0, 3.1 or 3.2 is absolutely necessary to update to this version. The error was not reported if you have installed versions of the plug-in before 3.0 and later you run the update.
 
 == Changelog ==
+
+= 4.0 =
+* Now you can change the title of the FeelBox!
+* New GPL2 Open Source License.
+* Improved Italian localization.
+* A lot of other small improvements in the code and in CSS.
 
 = 3.3.1 =
 * Second patch that corrects a serious error in new installations.

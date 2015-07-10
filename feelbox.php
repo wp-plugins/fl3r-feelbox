@@ -3,11 +3,18 @@
 Plugin Name: FL3R FeelBox
 Plugin URI: https://wordpress.org/plugins/fl3r-feelbox/
 Description: Adds a one-click real-time mood rating widget to all of your posts.
-Version: 3.3.1
+Version: 4.0
 Author: Armando "FL3R" Fiore
 E-Mail: armandofioreinfo@gmail.com
 Author URI: https://www.twitter.com/Armando_Fiore
-License: Freeware, no warranty. Modifications not allowed.
+License: Copyright Armando "FL3R" Fiore, released under GPL v2.
+*/
+/*
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+Portions of this code are based on the plugin MoodThingy Mood Rating Widget.
 */
  
 load_plugin_textdomain('fl3r-feelbox', NULL, dirname(plugin_basename(__FILE__)) . "/languages");
@@ -18,19 +25,47 @@ global $moods;
 global $use_centralized_site;
 global $feelbox_server;
 global $nothumb;
+global $fl3rfeelboxtitle;
+global $feelbox_wp_options;
 
 $use_centralized_site = FALSE;
 $lydl_db_version = "0.6";
 $feelbox_server = "";
+
+
+
+
 $moods = array(1 => "Fascinated", 2 => "Happy", 3 => "Sad", 4 => "Angry", 5 => "Bored", 6 => "Afraid");
 $cookie_duration = 14;
+//$fl3rfeelboxtitle = "How this post make you feel?";
 $nothumb = feelbox_PLUGIN_DIR . '/no_thumb.jpg';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 require_once( 'feelbox-admin.php' );
 
 function lydl_install_db_table () {
 	global $wpdb;
 	global $lydl_db_version;
+	global $feelbox_wp_options;
 	
 	$table_name = $wpdb->prefix.'lydl_posts';
 	$table_name2 = $wpdb->prefix.'lydl_poststimestamp';
@@ -130,13 +165,17 @@ function feelbox_init() {
 	}
 }
 
+// fl3r: default
+
 function feelbox_add_default_options() {	
 	$temp = array(
 		'showsparkbar' => 'on',
 		'showinpostsondefault' => 'on',
 		'showtweetfollowup' => 'on',
 		'validkey' => '0',
-		'sortmoods' => 'off'
+		'sortmoods' => 'off',
+		'fl3rfeelboxtitle' => 'How this post make you feel?'
+		
 	);
 	
 	update_option('feelbox_wp_options', $temp);
@@ -151,18 +190,25 @@ function feelbox_get_widget_html() {
 	global $wpdb;
 	global $post;
 	global $moods;
+	global $feelbox_wp_options;
+	
+	// fl3r: here the title! Orrah!
+	
+	global $fl3rfeelboxtitle;
+	$options = get_option('feelbox_wp_options');
+	
+	// f.
 
 	if ( ( $use_centralized_site == FALSE ) || ($use_centralized_site == TRUE && feelbox_website_and_apikey_match()) ) {
 		$post_id = (int)$post->ID;
 		$obj = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}lydl_posts WHERE ID=" . $post_id, ARRAY_A);
-		        $sum = $obj["emotion_1"]+$obj["emotion_2"]+$obj["emotion_3"]+$obj["emotion_4"]+$obj["emotion_5"]+$obj["emotion_6"];      
-         
+		        $sum = $obj["emotion_1"]+$obj["emotion_2"]+$obj["emotion_3"]+$obj["emotion_4"]+$obj["emotion_5"]+$obj["emotion_6"];
         $widgethtml = '<div id="feelbox-widget" class="voted"><div id="lyr2"><div id="feelbox-bold">Share your vote!</div> 
 		<BR>
 		<BR>
 		<div>
 		
-		        <a id="feelbox-twitter-button" class="socialmedia" href="https://twitter.com/share?url=' . get_permalink() . '&related=Armando_Fiore&hashtags=FL3RFeelBox&text=I%20just%20voted%20on%20the%20post%20\"' . get_the_title() . '\"">share</a> 
+		    <a id="feelbox-twitter-button" class="socialmedia" href="https://twitter.com/share?url=' . get_permalink() . '&related=Armando_Fiore&hashtags=FL3RFeelBox&text=I%20just%20voted%20on%20the%20post%20\"' . get_the_title() . '\"">share</a> 
  	
  	        <a id="feelbox-facebook-button" class="socialmedia" href="http://www.facebook.com/sharer/sharer.php?s=100&p[title]=' . get_the_title() . '&p[url]=' . get_permalink() . '&p[summary]=I+just+voted+on+this+post+with+feelbox!">share</a> 
  		         
@@ -180,7 +226,11 @@ function feelbox_get_widget_html() {
  	                <div id="title"> 
  		                    <a target="_blank" href="https://wordpress.org/plugins/fl3r-feelbox/" title="FL3R FeelBox on Wordpress.org"><span> </span></a> 
 				</div>
-				<div id="feelbox-s">How this post make you feel?</div> 
+				         <div id="feelbox-s">
+						 ' . 
+						 print_r( $options["fl3rfeelboxtitle"],true)
+						 . '
+						 </div> 
 			</div>
 			<span id="total"></span><span id="voted"></span>
 			<div id="bd" style="">
@@ -280,7 +330,8 @@ function lydl_js_header() {
 		url: '<?php echo the_permalink(); ?>',
 		sparkline: '<?php echo $options['showsparkbar'] ?>',
 		sortmoods: '<?php echo $options['sortmoods'] ?>',
-		tweet: '<?php echo $options['showtweetfollowup'] ?>' 
+				fl3rfeelboxtitle: '<?php echo $options['fl3rfeelboxtitle'] ?>',
+tweet: '<?php echo $options['showtweetfollowup'] ?>'
 		};
 	
 		</script>
@@ -292,6 +343,7 @@ function lydl_js_header() {
 
 function lydl_store_results($vote, $postid) {
 	global $wpdb;
+	global $feelbox_wp_options;
 	$wpdb->show_errors();
 	
 	if ($vote) {
@@ -359,6 +411,7 @@ function lydl_store_results($vote, $postid) {
 function lydl_ajax_populate() {
 	global $wpdb;
 	global $post;
+	global $feelbox_wp_options;
 
 	$postid = $_POST['postID'];	
 	$nonce = $_POST['token'];
