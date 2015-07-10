@@ -70,13 +70,11 @@
 }
 #feelbox-widget #hdr #title {
 	float: right;
-	padding-right: 6px;
 }
 #feelbox-widget #hdr #title span {
 	background: url("../images/logo.png") no-repeat scroll 0 0 transparent;
 	display: block;
 	float: left;
-	margin-right: 8px;
 	margin-top: 2px;
 	min-height: 24px;
 	text-indent: -99999px;
@@ -119,7 +117,7 @@
 #feelbox-widget ul {
 	width: 100%;
 	padding: 0px;
-	margin: 8px auto 0px auto;
+	margin: 8px auto 16px auto;
 	text-align: center;
 }
 #feelbox-widget ul li {
@@ -176,7 +174,7 @@
 	color: #666;
 }
 #sparkbardiv {
-	width: 98%;
+	width: 100%;
 	margin: 0 auto;
 }
 .sparkbar {
@@ -189,7 +187,6 @@
 .sparkbar div {
 	float: left;
 	height: 10px;
-	margin-left: -1px;
 }
 /* fascinated */
 #mdr-e1 {
@@ -326,6 +323,7 @@
 }
 .percent {
 	margin-top: 100%;
+	padding-top:8px;
 }
 .vftthx {
 	position: absolute;
@@ -396,8 +394,17 @@ div#feelbox-s {
 #feelbox-widget.small ul li #feelbox-cell span.m {
 }
 #feelbox-widget.small ul li #feelbox-cell span.percent {
-	font-size: 0.75em;
+	font-size: 0.50em;
 }
 #feelbox-widget.small ul li #feelbox-cell .vftthx {
 }
+}
+
+/* fl3r: widget laterale */
+
+#feelbox_widget-2 li{
+list-style-type: none;
+}
+img.mdt-thumbnail {
+margin-right: 8px;
 }
