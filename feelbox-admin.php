@@ -272,6 +272,7 @@ function feelbox_settings_page() {
 	global $moods;
 	global $customcss;
 	global $fl3rfeelboxtitle;
+	global $fl3rfeelboxstyleicons;
 	global $feelbox_wp_options;
 	
 	$hidden_field_name = 'feelbox_submit_hidden';
@@ -327,7 +328,8 @@ function feelbox_settings_page() {
 	</script>
 <?php
 global $fl3rfeelboxtitle;
-	
+global $fl3rfeelboxstyleicons;
+
 		if( isset($_POST[ $hidden_field_name ]) && $_POST[ $hidden_field_name ] == 'Y' ) {
 		
 			if ( trim($_POST[ 'cleardata' ] == 'DELETE') ) {
@@ -339,6 +341,7 @@ global $fl3rfeelboxtitle;
 				$options['showinpostsondefault'] 	= $_POST[ 'showinpostsondefault' ];
 				$options['bypasscss']				= $_POST[ 'bypasscss' ];				
 				$options['fl3rfeelboxtitle']		= $_POST[ 'fl3rfeelboxtitle' ];
+				$options['fl3rfeelboxstyleicons']	= $_POST[ 'fl3rfeelboxstyleicons' ];
 				$options['showtweetfollowup'] 		= ( $_POST[ 'showtweetfollowup' ] ) ? $_POST[ 'showtweetfollowup' ] : 'off' ;
 
 				@file_put_contents(feelbox_CSS_FILE, stripslashes( $_POST[ 'cssbox' ] ) );
@@ -383,13 +386,33 @@ global $fl3rfeelboxtitle;
           <tr valign="top">
             <th scope="row"><?php _e("Title","fl3r-feelbox");?></th>
             <td><input type="textbox" id="fl3rfeelboxtitle" name="fl3rfeelboxtitle" value="<?php print_r( $options["fl3rfeelboxtitle"]); ?>">
-              <p>
+              <p class="description">
                 <?php _e("The title before FeelBox.","fl3r-feelbox");?>
               </p>
-              <p class="description">
-                <?php _e("The default option is 'How this post make you feel?'.","fl3r-feelbox");?>
-              </p></td>
+              </td>
           </tr>
+		    <tr valign="top">
+            <th scope="row"><?php _e("Icons style","fl3r-feelbox");?></th>
+            <td>
+			
+			 <label for="classic">Classic </label><input id="fl3rfeelboxstyleicons" name="fl3rfeelboxstyleicons" type="Radio" value="classic" <?php if ( $options["fl3rfeelboxstyleicons"]=='classic' ) { echo 'checked="true"'; } ?>>
+<label for="emoji">Emoji One </label><input id="fl3rfeelboxstyleicons" name="fl3rfeelboxstyleicons" type="Radio" value="emoji" <?php if ( $options["fl3rfeelboxstyleicons"]=='emoji' ) { echo 'checked="true"'; } ?>>		
+<label for="classic">Korosensei </label><input id="fl3rfeelboxstyleicons" name="fl3rfeelboxstyleicons" type="Radio" value="korosensei" <?php if ( $options["fl3rfeelboxstyleicons"]=='korosensei' ) { echo 'checked="true"'; } ?>>
+              <p class="description">
+                <?php _e("Choose your FeelBox style!","fl3r-feelbox");?>
+              </p>
+			  
+			  
+			  </td>
+          </tr>
+
+
+		  
+		 
+
+
+		  
+		  
           <tr valign="top">
             <th scope="row"><?php _e("Graphical bar","fl3r-feelbox");?></th>
             <td><input type="checkbox" id="showsparkbar" name="showsparkbar" <?php if ( $options["showsparkbar"]=='on' ) { echo 'checked="true"'; } ?>>
@@ -468,7 +491,7 @@ global $fl3rfeelboxtitle;
       <div id="csswrapper">
         <textarea style="width:100%;" rows="10" id="cssbox" name="cssbox"><?php echo @file_get_contents(feelbox_CSS_FILE); ?></textarea>
         <p class="description">
-          <?php _e("Here you can customize your FeelBox Css. The file is stored in the same directory of original FeelBox style.css.","fl3r-feelbox");?>
+          <?php _e("Here you can customize your FeelBox CSS. The file is stored in the same directory of original FeelBox style.css.","fl3r-feelbox");?>
         </p>
       </div>
       <table class="form-table">

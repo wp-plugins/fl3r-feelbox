@@ -13,8 +13,8 @@ Adds an one-click real-time mood rating FeelBox to all of your posts. Oh, there 
 
 FL3R FeelBox is a plugin that any blogger can use to track the emotional feedback (Fascinated, Happy, Sad, Angry, Bored or Afraid) of an individual blog post or article. The plugin can be configured to automatically appear below all of your posts, just above the comments, or manually placed anywhere you want, with a Wordpress tag or PHP.
 FL3R FeelBox can shows statistics of your posts, sorted by user involvement based on the time period or the emotions.
-It includes a widget to show your readers the most emotional posts or sort it by a particular emotion, or by the past day, week, month or year. 
-
+You can choose from various icons style and add your own title above the plugin: in example, classic style, Emoji One style and Korosensei style tribute from anime Assassination Classroom (暗殺教室 Ansatsu kyōshitsu).
+It includes a widget to show your readers the most emotional posts or sort it by a particular emotion, or by the past day, week, month or year.
 
 == Installation ==
 
@@ -35,6 +35,8 @@ A FAQ section is available from the FeelBox Stats and FeelBox Settings pages. If
 4. Settings.
 5. Credits.
 6. Widget options.
+7. Emoji One style.
+8. Korosensei style.
 
 == Upgrade Notice ==
 
@@ -42,6 +44,12 @@ A FAQ section is available from the FeelBox Stats and FeelBox Settings pages. If
 * This version corrects an error found in new installations that did not allow you to use the plugin: during installation were not created tables in the database. If you have installed the version 3.0, 3.1 or 3.2 is absolutely necessary to update to this version. The error was not reported if you have installed versions of the plug-in before 3.0 and later you run the update.
 
 == Changelog ==
+
+= 5.0 =
+* Now you can choose from various icons styles!
+* Classic: the FeelBox classic moods icons style.
+* Emoji One: new Emoji One moods icons style.
+* Korosensei: new Korosensei moods icons style tribute from the anime Assassination Classroom (暗殺教室 Ansatsu kyōshitsu).
 
 = 4.0 =
 * Now you can change the title of the FeelBox!

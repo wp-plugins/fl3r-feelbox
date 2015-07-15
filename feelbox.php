@@ -3,7 +3,7 @@
 Plugin Name: FL3R FeelBox
 Plugin URI: https://wordpress.org/plugins/fl3r-feelbox/
 Description: Adds a one-click real-time mood rating widget to all of your posts.
-Version: 4.0
+Version: 5.0
 Author: Armando "FL3R" Fiore
 E-Mail: armandofioreinfo@gmail.com
 Author URI: https://www.twitter.com/Armando_Fiore
@@ -14,7 +14,9 @@ This program is free software: you can redistribute it and/or modify it under th
 (at your option) any later version.
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
-Portions of this code are based on the plugin MoodThingy Mood Rating Widget.
+Portions of this code are based on the plugin MoodThingy.
+Using Roboto font released under Apache License, version 2.0, https://www.google.com/fonts/specimen/Roboto.
+Using images provided free by Emoji One from http://emojione.com.
 */
  
 load_plugin_textdomain('fl3r-feelbox', NULL, dirname(plugin_basename(__FILE__)) . "/languages");
@@ -32,33 +34,9 @@ $use_centralized_site = FALSE;
 $lydl_db_version = "0.6";
 $feelbox_server = "";
 
-
-
-
 $moods = array(1 => "Fascinated", 2 => "Happy", 3 => "Sad", 4 => "Angry", 5 => "Bored", 6 => "Afraid");
 $cookie_duration = 14;
-//$fl3rfeelboxtitle = "How this post make you feel?";
 $nothumb = feelbox_PLUGIN_DIR . '/no_thumb.jpg';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 require_once( 'feelbox-admin.php' );
 
@@ -121,10 +99,10 @@ add_action('init', 'register_feelbox_Widget', 1);
 add_shortcode( 'feelbox', 'print_feelbox_shortcode' );
 
 function feelbox_init() {
-
+	
 	$options = get_option('feelbox_wp_options');
 	$customCSS = @file_get_contents(feelbox_CSS_FILE);
-	
+
 	if ( !$customCSS ) {
 		$defaultCSS = @file_get_contents(feelbox_CSS_DEFAULT);
 		@file_put_contents(feelbox_CSS_FILE, strip_tags($defaultCSS) );
@@ -148,7 +126,26 @@ function feelbox_init() {
 		wp_enqueue_script( 'my-ajax-request', feelbox_PLUGIN_DIR . '/js/ajax.js', array( 'jquery' ) );	
 		wp_register_script( 'feelbox-remote', feelbox_PLUGIN_DIR . '/js/easyXDM.min.js' );	
 		wp_enqueue_script( 'feelbox-remote' );
+		
+		
 	}
+
+	// fl3r: icons style
+	
+	if ( $options['fl3rfeelboxstyleicons'] == 'classic' ) {
+			wp_register_style('feelbox-icons-style', feelbox_PLUGIN_DIR . '/css/style-icons-classic.css' );
+			wp_enqueue_style('feelbox-icons-style');
+		}
+	if ( $options['fl3rfeelboxstyleicons'] == 'emoji' ) {
+			wp_register_style('feelbox-icons-style', feelbox_PLUGIN_DIR . '/css/style-icons-emoji.css' );
+			wp_enqueue_style('feelbox-icons-style');
+		}
+	if ( $options['fl3rfeelboxstyleicons'] == 'korosensei' ) {
+			wp_register_style('feelbox-icons-style', feelbox_PLUGIN_DIR . '/css/style-icons-korosensei.css' );
+			wp_enqueue_style('feelbox-icons-style');
+		}
+		
+	// f.
 
 	if (!$options) {
 		feelbox_add_default_options();
@@ -174,8 +171,8 @@ function feelbox_add_default_options() {
 		'showtweetfollowup' => 'on',
 		'validkey' => '0',
 		'sortmoods' => 'off',
-		'fl3rfeelboxtitle' => 'How this post make you feel?'
-		
+		'fl3rfeelboxtitle' => 'How this post make you feel?',
+		'fl3rfeelboxstyleicons' => 'classic'
 	);
 	
 	update_option('feelbox_wp_options', $temp);
@@ -195,10 +192,11 @@ function feelbox_get_widget_html() {
 	// fl3r: here the title! Orrah!
 	
 	global $fl3rfeelboxtitle;
+	global $fl3rfeelboxstyleicons;
 	$options = get_option('feelbox_wp_options');
 	
-	// f.
-
+	// f.	
+	
 	if ( ( $use_centralized_site == FALSE ) || ($use_centralized_site == TRUE && feelbox_website_and_apikey_match()) ) {
 		$post_id = (int)$post->ID;
 		$obj = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}lydl_posts WHERE ID=" . $post_id, ARRAY_A);
@@ -330,8 +328,9 @@ function lydl_js_header() {
 		url: '<?php echo the_permalink(); ?>',
 		sparkline: '<?php echo $options['showsparkbar'] ?>',
 		sortmoods: '<?php echo $options['sortmoods'] ?>',
-				fl3rfeelboxtitle: '<?php echo $options['fl3rfeelboxtitle'] ?>',
-tweet: '<?php echo $options['showtweetfollowup'] ?>'
+		fl3rfeelboxtitle: '<?php echo $options['fl3rfeelboxtitle'] ?>',
+		fl3rfeelboxstyleicons: '<?php echo $options['fl3rfeelboxstyleicons'] ?>',
+		tweet: '<?php echo $options['showtweetfollowup'] ?>'
 		};
 	
 		</script>
