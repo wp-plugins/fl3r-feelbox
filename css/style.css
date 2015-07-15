@@ -1,3 +1,4 @@
+/* FL3R FeelBox */
 @font-face {
 	font-family: 'robotomedium';
 	src: url('../webfont/roboto-medium-webfont.eot');
@@ -187,93 +188,6 @@
 .sparkbar div {
 	float: left;
 	height: 10px;
-}
-/* fascinated */
-#mdr-e1 {
-	background-image: url(../images/fascinated.png);
-	background-repeat: no-repeat;
-	background-position: top;
-	background-size: contain;
-}
-#mdr-e1:hover {
-	background-image: url(../images/fascinated.png);
-	background-repeat: no-repeat;
-	background-position: top;
-	background-size: contain;
-}
-#mdr-e1 .percent {
-	color: #bdc3c7;
-}
-.spark1 {
-	background-color: #bdc3c7;
-}
-/* happy */
-#mdr-e2 {
-	background-image: url(../images/happy.png);
-	background-repeat: no-repeat;
-	background-position: top;
-	background-size: contain;
-}
-#mdr-e2 .percent {
-	color: #f1c40f;
-}
-.spark2 {
-	background-color: #f1c40f;
-}
-/* sad */
-#mdr-e3 {
-	background-image: url(../images/sad.png);
-	background-repeat: no-repeat;
-	background-position: top;
-	background-size: contain;
-}
-#mdr-e3 .percent {
-	color: #27ae60;
-}
-.spark3 {
-	background-color: #27ae60;
-}
-/* angry */
-#mdr-e4 {
-	background-image: url(../images/angry.png);
-	background-repeat: no-repeat;
-	background-position: top;
-	background-size: contain;
-}
-#mdr-e4 .percent {
-	color: #e74c3c;
-}
-.spark4 {
-	background-color: #e74c3c;
-}
-/* bored */
-#mdr-e5 {
-	background-image: url(../images/bored.png);
-	background-repeat: no-repeat;
-	background-position: top;
-	background-size: contain;
-}
-#mdr-e5 .percent {
-	color: #3498db;
-}
-.spark5 {
-	background-color: #3498db;
-}
-/* afraid */
-#mdr-e6 {
-	background-image: url(../images/afraid.png);
-	background-repeat: no-repeat;
-	background-position: top;
-	background-size: contain;
-}
-#mdr-e6 .percent {
-	color: #b967da;
-}
-.spark6 {
-	background-color: #b967da;
-}
-.p-0 {
-/*	color: #CCCCCC; */
 }
 #feelbox-widget p {
 	margin: 0;
