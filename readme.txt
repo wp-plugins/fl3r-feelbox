@@ -22,7 +22,7 @@ It includes a widget to show your readers the most emotional posts or sort it by
 
 **Would you like a new icons style?**
 
-Unleash your imagination, and Suggest me the style of the icons you'd find in FL3R FeelBox. You may find them in one of the new versions!
+Unleash your imagination, and suggest me the style of the icons you'd find in FL3R FeelBox. You may find them in one of the new versions!
 
 **Donate**
 
