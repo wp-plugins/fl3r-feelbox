@@ -26,7 +26,9 @@ Unleash your imagination, and Suggest me the style of the icons you'd find in FL
 
 **Donate**
 
-If you like this plugin, you consider making a small donation. Thanks.https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2PCZCTKZ86ANA
+If you like this plugin, you consider making a small donation. Thanks.
+
+https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2PCZCTKZ86ANA
 
 **Note for update**
 
